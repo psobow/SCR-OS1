@@ -282,14 +282,14 @@
         * `find /etc -mtime -3` (minus przed 3 oznacza mniej niż 3)
       * Pliki w folderze /etc o rozmiarze mniejszym niż 1KB i zmodyfikowane w ciągu trzech ostatnich dni
         * `find /etc -size -2 -mtime -3`
-      * Pliki w folderze /etc o rozmiarze mniejszym niż 1KB zmodyfikowane w ciągu ostatnich 3 dni oraz pliki większe niż 250kB
+      * Pliki w folderze /etc o rozmiarze mniejszym niż 1KB zmodyfikowane w ciągu ostatnich 3 dni lub pliki większe niż 250kB
         * Użyjemy switcha `-o` który oznacza logiczny operator OR
         * `find /etc -size -2 -o -size +500 -mtime -3`
       * Ostatecznie przechodzimy do finalnego polecenia, w dodatku pogrupujemy kategorie wyszukiwania w nawiasy
-        * `find /etc \( -size -2 -mtime -3 \) -o \( -size +500 -mtime +30 -o -mtime -90 \)` (spacje są ważne)
+        * `find /etc \( -size -2 -mtime -3 \) -o \( -size +500 -mtime +30 -a -mtime -90 \)` (spacje są ważne) (-a logiczne AND)
     * Na rezultacie programu find możemy wykonać inne polecenia przy pomocy switcha `-exec`. polecenie musi kończyć się `\;` oraz można użyć `{}` jako symbolu zastępczego dla każdego pliku, który zostanie zlokalizowany przez wywołanie `find`. Aby uzyskać więcej informacji na temat wszystkich elementów znalezionych przez `find` możemy na końcu dodać switcha: `-exec ls -l {} \;`  
     * Tak więc aby uzyskać szczegółowe informacje na temat wyszukanych plikow możemy użyc polecenia  
-    `find /etc \( -size -2 -mtime -3 \) -o \( -size +500 -mtime +30 -o -mtime -90 \) -exec ls -l {} \;`
+    `find /etc \( -size -2 -mtime -3 \) -o \( -size +500 -mtime +30 -a -mtime -90 \) -exec ls -l {} \;`
     * Więcej informacji: <https://en.wikipedia.org/wiki/Find_(Unix)>
     
 13. Archwizacja danych

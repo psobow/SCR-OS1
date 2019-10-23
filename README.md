@@ -34,6 +34,7 @@
   * W przypadku uruchamiania skryptu jest to ściężka w której znajduję się skrypt
 * Ścieżka bezwględna - to ścieżka rozpoczynająca się od naszego katalogu domowego `~`, lub katalogu głównego `/`
 * Switche mogą być łączone ze sobą w dowolnej kolejności: `ls -l -a` == `ls -a -l` == `ls -la` == `ls -al`
+* **Aby uruchomić nowy proces z poziomu terminala oraz niedopuścić do sytuacji zamrożenia okna terminala na czas pracy nowego procesu musimy dodać znak ampersand `&` na koniec komendy. Np. `gedit plik.txt &`**
 * Spis komend Unixowych - https://en.wikipedia.org/wiki/List_of_Unix_commands
   
 ## Skróty klawiszowe ##
@@ -44,6 +45,9 @@
 * `ctrl-c` - Przerwanie bieżącego procesu
 * `ctrl-d` - Wysłanie znaku końca pliku (EOF) do bieżącego procesu. wysłanie tej kombinacji do powłoki systemowej wywołuje efekt natychmiastowego wylogowania się z systemu
 * `ctrl-alt-t` - odpala terminal
+* `ctrl-u` - w terminalu, kasuje wszystkie znaki które wprowadziliśmy i nie zatwierdziliśmy enterem
+* `ctrl-shift-c` - kopiuj w terminalu
+* `ctrl-shift-v` - wklej w terminalu
 
 ## Zawartość katalogu głównego (/) ##
 - bin - Katalog ten zawiera programy dostępne dla użytkownikó systemu
@@ -111,7 +115,7 @@
       * `-a` - Zostaną dodatkowo wyświetlone pliku ukryte
       * `-t, --sort=time` - Sortuje wynik według czasu modyfikacji. Najnowsze jako pierwsze
       * `-r, --reverse` - Powoduje odwrócenie kolejności wświetlania
-      * `-d` - Powoduje wypisanie tylko katalogów
+      * `-d */` - Powoduje wypisanie tylko katalogów
       * Wyszukiwanie przy pomocy wzorca:
         * `ls p*` - Wyszukaj wszystkie pliki które zaczynają się na litere `p`
         * `ls --ignore='p*'` - Wyszukaj wszystkie pliki które NIE zaczynają się na litere `p`
@@ -150,7 +154,7 @@
     * `-f`, `--force` - Powoduje usuwanie plików bez pytania o potwierdzenie i bez zgłaszania błędów w przypadku gdy nie może usunąć elementu
     
 7. Wyświetlanie zawartości pliku
-    * Możemy to zrealizować przy pomocy polecenia `cat` 
+    * Możemy to zrealizować przy pomocy polecenia `cat` (concatenate)
       ```
       patryk@heaven31415:~/mydir$ ls
       patryk@heaven31415:~/mydir$ echo 1 > plik1
@@ -162,18 +166,19 @@
       2
       ```
     * Polecenie `echo 2 > plik2` nadpisuje zawartość `plik2`, czyli zawartość plik2 zostanie zastąpiona przez to co wyślemy przy pomocy echo
+    * Aby dopisać informacje do pliku, na jego koniec, zamiast je podmieniać musimy użyć operatora `>>` np. `echo "This text will be added to the end of the file" >> file`
     * Więcej informacji: <https://en.wikipedia.org/wiki/Cat_(Unix)>
     
 8. Zmiana dat modyfikacji elementów i dostępu do nich  
     * Zmiane tych zawartości umożliwia polecenie `touch` 
     * Jeżeli podamy nazwe pliku, który jeszcze nie istnieje polecenie `touch` utworzy nowy plik. Aby zapobiec temu stosujemy opcje `-c`: `touch -c nazwa_pliku` - polecenie to nie utworzy pliku o nazwie nazwa_pliku, w przypadku gdy ten  nie istnieje
-    ```
-    patryk@heaven31415:~/mydir$ ls -l
-    drwxrwxr-x 2 patryk patryk 4096 Oct 13 12:58 newdir
-    patryk@heaven31415:~/mydir$ touch -c newdir/
-    patryk@heaven31415:~/mydir$ ls -l
-    drwxrwxr-x 2 patryk patryk 4096 Oct 13 13:00 newdir
-    ```
+      ```
+      patryk@heaven31415:~/mydir$ ls -l
+      drwxrwxr-x 2 patryk patryk 4096 Oct 13 12:58 newdir
+      patryk@heaven31415:~/mydir$ touch -c newdir/
+      patryk@heaven31415:~/mydir$ ls -l
+      drwxrwxr-x 2 patryk patryk 4096 Oct 13 13:00 newdir
+      ```
     
 9. Kopiowanie Plików i katalogów  
     * Kopiowanie plików i katalogów odbywa się za pomocą polecenia `cp`. Ogólnie składnia tego polecenia określa element, który zamierzamy skopiować, oraz miejsce w którym ma się znaleźć kopiowany element: `cp plik1 katalog1` - Skopiujemy plik o nazwie `plik1` do katalogu o nazwie `katalog1`. Jeżeli nie podamy nazwy pliku w katalogu docelowym plik zachowa swoją nazwe.
@@ -223,7 +228,7 @@
     * Więcej informacji: https://en.wikipedia.org/wiki/Mv
 
 11. Nadawanie praw dostępu do plików i katalogów, po ich utworzeniu
-    * Prawa dostępu nadajemy za pomocą `chmod` 
+    * Prawa dostępu nadajemy za pomocą `chmod` (change mode)
     * `chmod 777 nazwa_pliku_lub_katalogu`
     * liczby `744` oznaczają odpowiednie litery `r`, `w`, `x`, 
       * 4 - `r`
@@ -278,51 +283,58 @@
         * użyjemy do tego `-size n` - gdzie n to rozmiar bloku pamięci o 512 bajtach 
         * `find /etc -size 2`
       * Pliki w folderze /etc, o zmodyfikowane w ciągu ostatnich 3 dni
-        * użyjemy `-mtime n` - gdzie n to ilość dni
-        * `find /etc -mtime -3` (minus przed 3 oznacza mniej niż 3)
-      * Pliki w folderze /etc o rozmiarze mniejszym niż 1KB i zmodyfikowane w ciągu trzech ostatnich dni
+        * użyjemy `-mtime n` - gdzie n to ilość dni (istnieje też`-mmin n` - gdzie n to ilośc minut)
+        * `find /etc -mtime -3`
+       * Pliki w folderze /etc o rozmiarze mniejszym niż 1KB i zmodyfikowane w ciągu trzech ostatnich dni
         * `find /etc -size -2 -mtime -3`
       * Pliki w folderze /etc o rozmiarze mniejszym niż 1KB zmodyfikowane w ciągu ostatnich 3 dni lub pliki większe niż 250kB
-        * Użyjemy switcha `-o` który oznacza logiczny operator OR
-        * `find /etc -size -2 -o -size +500 -mtime -3`
+        * switch `-o` oznacza logiczny operator OR
+        * switch `-a` oznacza logiczny operator AND
+        * `find /etc -size -2 -o -size +500 -a -mtime -3`
       * Ostatecznie przechodzimy do finalnego polecenia, w dodatku pogrupujemy kategorie wyszukiwania w nawiasy
-        * `find /etc \( -size -2 -mtime -3 \) -o \( -size +500 -mtime +30 -a -mtime -90 \)` (spacje są ważne) (-a logiczne AND)
-    * Na rezultacie programu find możemy wykonać inne polecenia przy pomocy switcha `-exec`. polecenie musi kończyć się `\;` oraz można użyć `{}` jako symbolu zastępczego dla każdego pliku, który zostanie zlokalizowany przez wywołanie `find`. Aby uzyskać więcej informacji na temat wszystkich elementów znalezionych przez `find` możemy na końcu dodać switcha: `-exec ls -l {} \;`  
+        * `find /etc \( -size -2 -a -mtime -3 \) -o \( -size +500 -a \( -mtime +30 -o -mtime -90 \) \)`
+    * Na rezultacie programu find możemy wykonać inne polecenia przy pomocy switcha `-exec`. polecenie musi kończyć się `\;` oraz można użyć `{}` jako symbolu zastępczego dla każdego pliku, który zostanie zlokalizowany przez wywołanie `find`. 
+    * Przykład `-exec ls -l \;`
+      ```
+      patryk@dell:~/Documents/code/SCR-OS1 [master]$ date
+      Wed 23 Oct 19:19:14 CEST 2019
+      patryk@dell:~/Documents/code/SCR-OS1 [master]$ find ./ -maxdepth 1 -mmin -20 -o -mtime +15
+      ./README.md
+      ./lab2
+      patryk@dell:~/Documents/code/SCR-OS1 [master]$ find ./ -maxdepth 1 -mmin -20 -o -mtime +15 -exec ls -l  \;
+      total 28
+      drwxr-xr-x 2 patryk patryk  4096 Oct  3 20:11 lab2
+      -rw-r--r-- 1 patryk patryk 23909 Oct 23 19:12 README.md
+      ```  
     * Tak więc aby uzyskać szczegółowe informacje na temat wyszukanych plikow możemy użyc polecenia  
-    `find /etc \( -size -2 -mtime -3 \) -o \( -size +500 -mtime +30 -a -mtime -90 \) -exec ls -l {} \;`
+    `find /etc \( -size -2 -a -mtime -3 \) -o \( -size +500 -a \( -mtime +30 -o -mtime -90 \) \) -exec ls -l \;`
     * Więcej informacji: <https://en.wikipedia.org/wiki/Find_(Unix)>
     
 13. Archwizacja danych
     * Dane możemy archiwizować przy pomocy polecenia `tar`. Archiwizowanie czyli łączenie wielu plików w jedno archiwum w celu ich łatwiejszej dystrybucji.
     * Tworzenie archiwum:
       * dodawanie kilku plików do archiwum:
-        * `tar -cvf my_files.tar file1 file2`
+        * `tar -cvf my-files.tar file1 file2`
       * Dodawanie folderu do archiwum:
-        * `tar -cvf my_files.tar /path/to/my/directory`
+        * `tar -cvf my-files.tar /path/to/my/directory`
     * Tworzenie skompresowanego archiwum:
       * switch `-z` używa programu `gzip` do kompresji
       * dodawanie kilku plików do archiwum oraz ich kompresja:
-        * `tar -cvzf my_files.tar.gz file1 file2`
+        * `tar -cvzf my-files.tar.gz file1 file2`
       * dodawanie folderu do archiwum oraz kompresja:
-        * `tar -cvzf my_files.tar.gz /path/to/my/directory`
+        * `tar -cvzf my-files.tar.gz /path/to/my/directory`
     * Dearchiwizacja danych:
       * Na nieskompresowanym archiwum:
-        * `tar -xvf my_files.tar`
+        * `tar -xvf my-files.tar`
       * Na skompresowanym archiwum:
-        * `tar -xvzf my_files.tar.gz`
+        * `tar -xvzf my-files.tar.gz`
     
 14. Ustalanie ile miejsca zajmuje plik lub katalog
     * Służy do tego polecenie `du nazwa_elementu`
-    * najlepiej użyć switcha `-b`, `--bytes` - które wyświetla informacje w postaci liczby bajtów
+    * najlepiej użyć switchy `-h` `--human-readable` oraz `s` `--summarize` - które wyświetlą informacje o całkowitej ilości zajmowanej przez folder
       ```
-      patryk@heaven31415:~$ ls
-      mydir
-      patryk@heaven31415:~$ du -b mydir/
-      4096    mydir/newdir
-      8192    mydir/
-      patryk@heaven31415:~$ du mydir/ -b
-      4096    mydir/newdir
-      8192    mydir/
+      patryk@dell:~/Documents/code$ du -hs C++/
+      1.2G	C++/
       ```
 
 15. Polecenia more i less
@@ -330,17 +342,30 @@
     * Pomoc w obsłudze progamów możemy uzyskać klikając przycisk `h` będąc w tym programie
     * Przekazywanie wyników innego polecenia do `more` jest realizowane przy użyciu znaku potoku: `|` 
     * `ls -l /etc | more` - polecenie to przekaże swój rezultat do programu more i w nim będzie mogli go przeglądać
+
+16. Dowiązania 
+    * Dowiązanie twarde możemy utworzyć na dwa sposoby:
+      * `link file1 file2` - file2 jest nazwą nowego dowiązania do zawartości file1
+      * `ln file1 file2` - file2 jest nazwą nowego dowiązania do zawartości file1
+      * Rezultatem takiego wywołanie jest to że plik `file2` wskazuje do miejsca na dysku, w którym znajduję się zawartość `file1`
+      * Jeżeli usuniemy teraz file1 np. `rm file1` to rezultatem takiego wywołania będzie usunięcie tylko jednego wskaźnika do pliku. Plik pozostanie ciągle na dysku ponieważ istenieje do niego wskaźnik `file2`. Za pomocą file2 ciągle możemy zobaczyć dane np. `cat file2`
+    * Dowiązania symboliczne to coś co przypomina skróty w Windowsie. Takie dowiązanie nie wskazuje do zawartości na dysku.
+    * Dowiązanie symboliczne tworzymy za pomocą polecenia `ln -s ścieżka-do-elementu nazwa-dowiązania`
+    * `ln -s file1 file2` - file2 jest nazwą nowego dowiązania symbolicznego które wskazuję na plik file1
+    * Rezultatem takiego działania jest to iż kiedy usuniemy file1 `rm file1` to usuwamy faktyczny plik i nie możemy uzyskać dostępu do jego zawartości za pomocą dowiązania symbolicznego `file2`
+    * Więcej informacji: https://www.computerhope.com/unix/uln.htm
+
     
-## 2. Zarządzanie kontem ##
+## 2. Zarządzanie kontem ## 
 
 1. Zmiana hasła
     * Zmianę hasła realizujemy przy pomocy polecenia `passwd`
     * Gdybyśmy byli zalogowani na koncie root'a i chcieli zmienić hasło użytkownika to wtedy: `passwd nazwa_użytkownika`
         
 2. Przełączanie się na konto innego użytkownika
-    * Używamy do tego polecenia `su nazwa_użytkownika`
+    * Używamy do tego polecenia `su nazwa_użytkownika` (switch user)
     * Aby zalogowac się na konto administratora: `su root`, następnie system zapyta nas o hasło 
-    
+    * Aby wylogować się z konta roota musimy wpisać `exit`
 ## 3. Operacje na procesach ##
 
 1. Informacje na temat procesów:  
@@ -382,8 +407,6 @@
         ```
     * Więcej informacji: <https://en.wikipedia.org/wiki/Kill_(command)>
 
-
- 
 ## 4. Uzyskiwanie informacji o użytkownikach ##
 
 1. Who
@@ -404,12 +427,20 @@
   * Utworzenie przykładowego skryptu printującego obecną date:
     ```
     #!/bin/bash
-    now="$(date)"
-    printf "Current date and time:  %s\n" "$now"
+    NOW="$(date)"
+    printf "Current date and time:  %s\n" "${NOW}"
     
-    now="$(date +'%d/%m/%Y')"
-    printf "Current date in dd/mm/yyyy:  %s\n" "$now"
+    NOW="$(date +'%d/%m/%Y')"
+    printf "Current date in dd/mm/yyyy:  %s\n" "${NOW}"
+
+    # This is a comment! It won't be executed 
     ```
+    * Wykrzyknik poprzedzony drabinką po angielsku nazywa się shabang. (połączenie słów sharp = `#` oraz bang = `!`)
+    * Pierwsza linijka określa jaki program/powłoka powinna zostać użyta do wykonania instrukcji w skrypcie
+    * Następnie tworzymy zmienną NOW, do której przypisujemy rezultat wywołania programu date. **Nie może być spacji w okół znaku równości!**
+    * Nazwy zmiennych mogą zawierać jedynie litery, cyfry i podkreślenia. Konwencja nazewnicza jest taka że piszemy nazwy wielkimi literami
+    * Wielkość liter w nazwach zmiennych ma znaczenie, bash rozróżnia wielkość liter w nazwach zmiennych
+    * komenda printf należy do wbudowanych komend powłoki. możemy to sprawdzić przy pomocy polecenia `type printf`
   * Następnie nadajemy prawo do wykonania skryptu przy pomocy `chmod +x nazwa_skryptu`
   * Następnie uruchamiamy skrypt `./nazwa_skryptu`
   * Output:
@@ -417,3 +448,24 @@
     Current date and time:  Mon 14 Oct 14:06:44 CEST 2019
     Current date in dd/mm/yyyy:  14/10/2019
     ```
+  * Utworzenie skryptu z instrukcją warunkową:
+    ```
+    #!/bin/bash
+
+    # Determine whether the user executing this script is the root user or not.
+
+    # Display user UID (UID - is the be built in bash variable)
+    echo "Your UID is ${UID}."
+
+    # Display if the user is root or not.
+    # -eq means equals
+    # spaces in forthcoming if statment are greatly important!
+    # double bracket syntax is a new syntax it's better to use [[ ]]
+    if [[ "${UID}" -eq 0 ]]
+    then
+      echo "You are root."
+    else
+      echo "You are not root."
+    fi
+    ```
+    * Aby przetestować działanie skryptu jako root możemy wykonać następujące polecenie: `sudo ./example-script.sh` a następnie wpisać hasło root'a. (sudo - super user do)

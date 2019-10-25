@@ -25,7 +25,7 @@
 * Pomoc systemowa wyświetlana jest za pomocą przeglądarki `more`, którą obsługuje się za pomocą następujących poleceń klawiszowych:
   * `spacja` - Przejście do następnej strony
   * &darr; - Przejście jedną linijke niżej
-  * `ctrl-b` - Przejście do poprzedniej strony
+  * `ctrl+b` - Przejście do poprzedniej strony
   * &uarr; - Przejście jedną linijke wyżej
   * `q` - Opuszczenie przeglądarki
 * Wyszukiwanie stron pomocy systemowej jest możliwe dzięki programom `apropos` oraz `whatis`, które wyszukują podanych słów w pomocy systemowej, np.: `apropos passwd`, `whatis passwd`
@@ -40,14 +40,15 @@
 ## Skróty klawiszowe ##
 * &uarr; &darr; - przywołanie poprzedniego/następnego polecenia z historii poleceń  
 * `Tab` aktywowanie „podpowiadacza” nazw plików. Uzupełnia wpisywane polecenie, jeśli da się je zresolvować na podstawie wpisanego ciągu znaków. Jeśli się nie da, to drugie wciśniecie przycisku `Tab` spowoduje wyświetlenie nazw plików pasujących do ciągu znaków, który wpisaliśmy.
-* `ctrl-z` - Przerzucenie bieżącego procesu na drugi plan
-* `ctrl-l` - Wyczyszczenie okna terminala
-* `ctrl-c` - Przerwanie bieżącego procesu
-* `ctrl-d` - Wysłanie znaku końca pliku (EOF) do bieżącego procesu. wysłanie tej kombinacji do powłoki systemowej wywołuje efekt natychmiastowego wylogowania się z systemu
-* `ctrl-alt-t` - odpala terminal
-* `ctrl-u` - w terminalu, kasuje wszystkie znaki które wprowadziliśmy i nie zatwierdziliśmy enterem
-* `ctrl-shift-c` - kopiuj w terminalu
-* `ctrl-shift-v` - wklej w terminalu
+* `ctrl+z` - Przerzucenie bieżącego procesu na drugi plan
+* `ctrl+l` - Wyczyszczenie okna terminala
+* `ctrl+c` - Przerwanie bieżącego procesu
+* `ctrl+d` - Wysłanie znaku końca pliku (EOF) do bieżącego procesu. wysłanie tej kombinacji do powłoki systemowej wywołuje efekt natychmiastowego wylogowania się z systemu
+* `ctrl+alt+t` - odpala terminal
+* `ctrl+u` - w terminalu, kasuje wszystkie znaki które wprowadziliśmy i nie zatwierdziliśmy enterem
+* `ctrl+r` - interaktywna wyszukiwarka uprzednio wprowadzonych poleceń
+* `ctrl+shift+c` - kopiuj w terminalu
+* `ctrl+shift+v` - wklej w terminalu
 
 ## Zawartość katalogu głównego (/) ##
 - bin - Katalog ten zawiera programy dostępne dla użytkownikó systemu
@@ -240,9 +241,9 @@
       * Trzecia cyfra - 4 - to prawa pozostałych użytkowników systemu 
     * Prawa można także nadawać w inny sposób np.:
       * `chmod +x plik` - nada prawo wykonywania/wejścia do katalogu dla właściciela(user), przypisanej grupy(group) oraz innych użytkowników(other)
-      * `chmod o-x plik` - zabierze prawo wykonywania/wejścia do katalogu dla innych użytkowników
-      * `chmod g-x plik` - zabierze prawo wykonywania/wejścia do katalogu dla przypisanej grupy
       * `chmod u-x plik` - zabierze prawo wykonywania/wejścia do katalogu dla właściciela
+      * `chmod g-x plik` - zabierze prawo wykonywania/wejścia do katalogu dla przypisanej grupy
+      * `chmod o-x plik` - zabierze prawo wykonywania/wejścia do katalogu dla innych użytkowników
     * Więcej informacji: https://en.wikipedia.org/wiki/Chmod
     
 12. Wyszukiwanie plików i katalogów

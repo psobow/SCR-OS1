@@ -470,3 +470,27 @@
     fi
     ```
     * Aby przetestować działanie skryptu jako root możemy wykonać następujące polecenie: `sudo ./example-script.sh` a następnie wpisać hasło root'a. (sudo - super user do)
+  
+## 6. Podstawy obsługi Vim'a ##
+  * Kiedy uruchomimy Vim'a znajdujemy się w domyślnym trybie, który służy do poruszania się po pliku i wykonywania różnych operacji. Aby przejść do trybu pisania musimy kliknąć literkę `i`, aby opuścić tryb pisania naciskamy `esc`.
+  * W trybie domyślnym możemy poruszać się za pomocą strzałek lub klawiszy `h`, `j`, `k`, `l`
+  * Aby opuścić edytor musimy być w trybie domyślnym oraz wpisać `:q` spowoduje to wyjście bez zapisania pliku. Polecenie `:wq` (kolejnośc literek ma znaczenie!) spowoduje wyjście i zapisanie pliku, natomiast jeśli chcemy wyjść z pliku i niezapisywać wprowadzonych zmian musimy użyć `:q!` (tutaj też kolejność ważne)
+  * Kopiuj, wytnij, wklej w vimie:
+    * Aby zaznaczyć obszar który chcemy skopiować lub wyciać w trybie domyślnym musimy nacisnąć klawisz `v`, spowoduje to uruchomienie trybu pozwalającego zaznaczyć dowolny obszar pliku.
+    * aby skopiować zaznaczony obszar `y`
+    * aby wyciąć zaznaczony obszar `d`
+    * aby wkleić to za kursorem naciskamy `p`
+    * aby wkleić to przed kursorem naciskamy `P` (wielka literka)
+    * aby zaniechać zaznaczania poprostu `esc` dwukrotnie
+    
+## 7. Podstawy SSH ##
+  * SSH - Secure Shell jest protokołem komunikacyjnym służącym do bezpiecznej komunikacji z innymi komputerami przez internet. Za pomocą SSH możemy zalogować się do innego komputera przez internet i wykonywać na nim różne operacje instalować programy, używać programów znajdujących się na tym komputerze, zarządzać system plików etc. Wszystkie te operacje są szyfrowane.
+  * Aby można było połączyć się do jakiegoś komputera za pomocą SSH, na kompuerze musi działać SSHD (Open SSH Daemon), który nasłuchuje połączeń SSH.
+  * Aby połączyć się z serwerem można użyć kilku opcji autoryzacji naszej tożsamości:
+    * Hasło - W tym przypadku po udanej próbie nawiązania połączenia po wykonnania takiego polecenia w konsoli: `ssh user-name@host-name-or-IP-adress` zostaniemy poproszeni o podanie hasła użytkownika `user-name`
+    * Klucz publiczny / Klucz prywatny - Pozwala logować się na serwer bez konieczności wpisywania hasła. Jest to bezpieczniejsza metoda łączenia się z serwerem, ponieważ hasła są narażone na złamanie np. brute-force attack
+      * Aby wygenerować zestaw kluczy musimy użyć komendy `ssh-keygen` - utworzony ona klucz publiczny pod ściężką `~/.ssh/id_rsa.pub` oraz klucz prywatny `~/.ssh/id_rsa`. Tą operacje wykonujemy na naszym lokalnym komputerze, nie na serwerze.
+      * Na naszym serwerze będzie folder `.ssh` w którym będzie plik `authorized_keys` do którego musimy dodać nasz klucz publiczny. W ten sposób kiedy będziemy łączyć się z naszym serwerem będziemy wysyłać nasz klucz publiczny a serwer będzie potrafił go rozpoznać i pozwoli nam się zalogować.
+    * Na podstawie hosta - Na serwerze znajduję się plik konfiguracyjny, w którym znajdują się nazwy hostów lub ich adresy IP, które są upoważnione do połączenia z tym serwerem.
+
+  * SCP - Secure File Copy - Program który służy do kopiowania plików z serwer lub na serwer za pomocą protokołu SSH

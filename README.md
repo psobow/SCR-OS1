@@ -44,11 +44,12 @@
 * `ctrl+l` - Wyczyszczenie okna terminala
 * `ctrl+c` - Przerwanie bieżącego procesu
 * `ctrl+d` - Wysłanie znaku końca pliku (EOF) do bieżącego procesu. wysłanie tej kombinacji do powłoki systemowej wywołuje efekt natychmiastowego wylogowania się z systemu
-* `ctrl+alt+t` - odpala terminal
-* `ctrl+u` - w terminalu, kasuje wszystkie znaki które wprowadziliśmy i nie zatwierdziliśmy enterem
-* `ctrl+r` - interaktywna wyszukiwarka uprzednio wprowadzonych poleceń
-* `ctrl+shift+c` - kopiuj w terminalu
-* `ctrl+shift+v` - wklej w terminalu
+* `ctrl+alt+t` - Uruchamia terminal
+* `ctrl+u` - Kasuje wszystkie znaki znajdujące się przed kursorem w terminalu
+* `ctrl+k` - Kasuje wszystkie znaki znajdujące się za kursorem w terminalu
+* `ctrl+r` - Interaktywna wyszukiwarka uprzednio wprowadzonych poleceń
+* `ctrl+shift+c` -Kopiuj w terminalu
+* `ctrl+shift+v` - Wklej w terminalu
 
 ## Zawartość katalogu głównego (/) ##
 - bin - Katalog ten zawiera programy dostępne dla użytkownikó systemu
@@ -129,7 +130,6 @@
       patryk@heaven31415:~/mydir$ ls -l
       drwxrwxr-x 2 patryk patryk 4096 Oct 13 12:58 newdir
       ```
-    
     * `-p` służy do tworzenia drzewa katalogów np. `mkdir -p a/b` utworzy katalog `a` jeśli ten nie istnieje, następnie wewnątrz `a` utworzy katalog `b` jeśli ten nie istnieje 
     * `-m` pozwala nadać prawa dostępu do katalogu np. `mkdir -m 111 katalog` utworzy katalog o prawach dostępu `--x--x--x`
     * Więcej informacji: https://en.wikipedia.org/wiki/Mkdir
@@ -245,8 +245,11 @@
       * `chmod g-x plik` - zabierze prawo wykonywania/wejścia do katalogu dla przypisanej grupy
       * `chmod o-x plik` - zabierze prawo wykonywania/wejścia do katalogu dla innych użytkowników
     * Więcej informacji: https://en.wikipedia.org/wiki/Chmod
+
+12. Zmiana właściciela pliku oraz grupy
+    * Aby zmienić właściciela pliku oraz grupe należy użyć polecenia `sudo chown -R new-owner-user-name:new-group-name /path/to/file`. (-R - recursive, czyli zmienia właściciela i grupe rekurencyjnie dla wszystkich plików znajdujących się w ścieżce która podaliśmy)
     
-12. Wyszukiwanie plików i katalogów
+13. Wyszukiwanie plików i katalogów
     * Zastosowanie polecenia `find` pozwala znaleźć  pliki i katalogi na dysku. Jako parametr podajemy ścieżkę, w której system ma szukać elementów, i opcje jakie ten element ma posiadać.  
     * `-name 'wzorzec'` - Wyszukuje pliki których nazwa pasuje do wzorca
       ```
@@ -311,7 +314,7 @@
     `find /etc \( -size -2 -a -mtime -3 \) -o \( -size +500 -a \( -mtime +30 -o -mtime -90 \) \) -exec ls -l \;`
     * Więcej informacji: <https://en.wikipedia.org/wiki/Find_(Unix)>
     
-13. Archwizacja danych
+14. Archwizacja danych
     * Dane możemy archiwizować przy pomocy polecenia `tar`. Archiwizowanie czyli łączenie wielu plików w jedno archiwum w celu ich łatwiejszej dystrybucji.
     * Tworzenie archiwum:
       * dodawanie kilku plików do archiwum:
@@ -330,7 +333,7 @@
       * Na skompresowanym archiwum:
         * `tar -xvzf my-files.tar.gz`
     
-14. Ustalanie ile miejsca zajmuje plik lub katalog
+15. Ustalanie ile miejsca zajmuje plik lub katalog
     * Służy do tego polecenie `du nazwa_elementu`
     * najlepiej użyć switchy `-h` `--human-readable` oraz `s` `--summarize` - które wyświetlą informacje o całkowitej ilości zajmowanej przez folder
       ```
@@ -338,13 +341,13 @@
       1.2G	C++/
       ```
 
-15. Polecenia more i less
+16. Polecenia more i less
     * Polecenia `more` i `less` są pomocne kiedy chcemy przeczytać plik lub rezultat wykonania jakiegoś polecenia nie mieści się na ekranie
     * Pomoc w obsłudze progamów możemy uzyskać klikając przycisk `h` będąc w tym programie
     * Przekazywanie wyników innego polecenia do `more` jest realizowane przy użyciu znaku potoku: `|` 
     * `ls -l /etc | more` - polecenie to przekaże swój rezultat do programu more i w nim będzie mogli go przeglądać
 
-16. Dowiązania 
+17. Dowiązania 
     * Dowiązanie twarde możemy utworzyć na dwa sposoby:
       * `link file1 file2` - file2 jest nazwą nowego dowiązania do zawartości file1
       * `ln file1 file2` - file2 jest nazwą nowego dowiązania do zawartości file1
@@ -484,13 +487,14 @@
     * aby zaniechać zaznaczania poprostu `esc` dwukrotnie
     
 ## 7. Podstawy SSH ##
-  * SSH - Secure Shell jest protokołem komunikacyjnym służącym do bezpiecznej komunikacji z innymi komputerami przez internet. Za pomocą SSH możemy zalogować się do innego komputera przez internet i wykonywać na nim różne operacje instalować programy, używać programów znajdujących się na tym komputerze, zarządzać system plików etc. Wszystkie te operacje są szyfrowane.
+  * SSH - Secure Shell jest protokołem komunikacyjnym służącym do bezpiecznej komunikacji z innymi komputerami przez internet. Za pomocą SSH możemy zalogować się do innego komputera przez internet i wykonywać na nim różne operacje instalować programy, używać programów znajdujących się na tym komputerze, zarządzać systemem plików etc. Wszystkie te operacje są szyfrowane.
   * Aby można było połączyć się do jakiegoś komputera za pomocą SSH, na kompuerze musi działać SSHD (Open SSH Daemon), który nasłuchuje połączeń SSH.
   * Aby połączyć się z serwerem można użyć kilku opcji autoryzacji naszej tożsamości:
     * Hasło - W tym przypadku po udanej próbie nawiązania połączenia po wykonnania takiego polecenia w konsoli: `ssh user-name@host-name-or-IP-adress` zostaniemy poproszeni o podanie hasła użytkownika `user-name`
     * Klucz publiczny / Klucz prywatny - Pozwala logować się na serwer bez konieczności wpisywania hasła. Jest to bezpieczniejsza metoda łączenia się z serwerem, ponieważ hasła są narażone na złamanie np. brute-force attack
-      * Aby wygenerować zestaw kluczy musimy użyć komendy `ssh-keygen` - utworzony ona klucz publiczny pod ściężką `~/.ssh/id_rsa.pub` oraz klucz prywatny `~/.ssh/id_rsa`. Tą operacje wykonujemy na naszym lokalnym komputerze, nie na serwerze.
-      * Na naszym serwerze będzie folder `.ssh` w którym będzie plik `authorized_keys` do którego musimy dodać nasz klucz publiczny. W ten sposób kiedy będziemy łączyć się z naszym serwerem będziemy wysyłać nasz klucz publiczny a serwer będzie potrafił go rozpoznać i pozwoli nam się zalogować.
+      * Aby wygenerować zestaw kluczy musimy użyć komendy `ssh-keygen` (Tą operacje wykonujemy w naszym clientcie za pomocą którego chcemy łączyć się z serwerem) - Po wywołaniu tego polecenia, terminal zapyta nas czy chcemy utworzyć klucze pod domyślną ściężką `~/.ssh/id_rsa.pub` oraz `~/.ssh/id_rsa`. Dobrą praktyką jest aby generować osobne klucze dla osobnych usług oraz nadać im odpowiednią nazwę. np. Kiedy zostaniemy zapytani o nazwe klucza podajemy: `Users/patryk/.ssh/id_rsa_github`. Następnie musimy dodać nasz klucz prywatny za pomocą polecenia `ssh-add ~/.ssh/id_rsa_github`.
+      * Na serwerze będzie folder `.ssh` w którym będzie plik `authorized_keys` (jeśli ich nie będzie to musimy stworzyć samodzielnie)  do którego musimy dodać nasz klucz publiczny. W ten sposób kiedy będziemy łączyć się z serwerem, będziemy wysyłać nasz klucz publiczny, a serwer będzie potrafił go rozpoznać i automatycznie nas zaloguje.
     * Na podstawie hosta - Na serwerze znajduję się plik konfiguracyjny, w którym znajdują się nazwy hostów lub ich adresy IP, które są upoważnione do połączenia z tym serwerem.
-
-  * SCP - Secure File Copy - Program który służy do kopiowania plików z serwer lub na serwer za pomocą protokołu SSH
+  * Aby zakończyć połączenie ze zdalnym serwerem wpisujemy `exit`
+  * SCP - Secure File Copy - Program który służy do kopiowania plików z serwera lub na serwer za pomocą protokołu SSH
+    * Przykładowe użycie, kopiowanie z clienta na serwer: `scp ~/test.txt user-name@host-name-or-IP:~` - Polecenie to skopiuje plik test.txt na serwer do katalogu domowego

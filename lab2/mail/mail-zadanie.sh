@@ -3,7 +3,7 @@
 for adress_mail in $(cat adresy.txt)
 do
     subject="Email testowy"
-    tresc="tresc.txt"    
+    tresc=$(cat tresc.txt)    
 	file1="cos.pdf"
 
 	echo "wysyłam e-mail do: $adress_mail"

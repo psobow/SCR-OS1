@@ -21,13 +21,16 @@
   * Symbol question mark `?` - dopasowuje tylko jeden dowolny znak
 * Długość polecenia nie jest ograniczona, terminal linię wykraczającą poza prawy margines ekranu „przełamie”, ale można  też przerwać pisanie polecenia w dowolnym momencie za pomocą znaku backward slash `\ ` i naciskając klawisz Enter. System uzna, że polecenie będzie kontynuowane w kolejnej linii i wstrzyma się z jego wykonaniem do chwili skompletowania całości, a zamiast prompta na początku nowej linii zostanie wyświetlony znak `>`
 * Uzyskiwanie pomocy (manual pages)  
-  Dostęp do dokumentacji możliwy jest dzięki przeglądarce interaktywnej, którą uruchamia się poleceniem: `man nazwa_polecenia`  
+  Dostęp do dokumentacji możliwy jest dzięki przeglądarce interaktywnej, którą uruchamia się poleceniem: `man nazwa_polecenia`
 * Pomoc systemowa wyświetlana jest za pomocą przeglądarki `more`, którą obsługuje się za pomocą następujących poleceń klawiszowych:
   * `spacja` - Przejście do następnej strony
   * &darr; - Przejście jedną linijke niżej
   * `ctrl+b` - Przejście do poprzedniej strony
   * &uarr; - Przejście jedną linijke wyżej
   * `q` - Opuszczenie przeglądarki
+  * Aby wyszukać frazę musimy kliknąć przycisk `/` (podany Pattern ma być regexem) 
+  * Aby anulować szukanie `ctrl+c`
+  * Aby przejść do następnego rezultatu `n` aby wrócić do poprzedniego `shift+n`
 * Wyszukiwanie stron pomocy systemowej jest możliwe dzięki programom `apropos` oraz `whatis`, które wyszukują podanych słów w pomocy systemowej, np.: `apropos passwd`, `whatis passwd`
 * Ścieżka względna - to ścieżka rozpoczynająca się w naszym aktualnym katalogu roboczym 
   * W przypadku pracy w terminalu jest to ścieżka w promptcie

@@ -488,6 +488,9 @@
     * aby wkleić to za kursorem naciskamy `p`
     * aby wkleić to przed kursorem naciskamy `P` (wielka literka)
     * aby zaniechać zaznaczania poprostu `esc` dwukrotnie
+  * Undo and Redo
+    * undo - naciskamy `u` w trybie domyślnym
+    * redo - naciskamy `ctrl+r` w trybie domyślnym 
     
 ## 7. Podstawy SSH ##
   * SSH - Secure Shell jest protokołem komunikacyjnym służącym do bezpiecznej komunikacji z innymi komputerami przez internet. Za pomocą SSH możemy zalogować się do innego komputera przez internet i wykonywać na nim różne operacje instalować programy, używać programów znajdujących się na tym komputerze, zarządzać systemem plików etc. Wszystkie te operacje są szyfrowane.

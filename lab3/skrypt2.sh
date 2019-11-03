@@ -17,7 +17,7 @@ usage()
 # materiały pomocnicze: https://stackoverflow.com/questions/16483119/an-example-of-how-to-use-getopts-in-bash
 
 # TODO: Zaimplementować awaryjne działanie programu nawypadek nieprawidłowego inputu.
-while getopts "a:m:n:" option;
+while getopts ":a:m:n:" option; # "Leading colon turn on silence error reporting mode"
 do
     case "${option}" in
         a)
@@ -60,10 +60,12 @@ fi
 # TODO: 
 if [[ -n $(find -name "$m" -mtime -$n -exec tar -rvf "$a" {} \;) ]]
 then
-    echo "Utworzono archiwum."
+    echo "Utworzono archiwum/Dodano pliki do archiwum"
 else
     echo "Nieznaleziono plikow spelniajacych podane kryteria."
 fi
 
 
-# example usage: bash ./skrypt2.sh -a arc2.tar -m *.txt -n 1
+# example usage: bash ./skrypt2.sh -a arc2.tar -m '*.txt' -n 1
+# Jeżeli w katalogu roboczym będzie znajdować się tylko jeden plik z rozszerzeniem .txt to polecenie bez apostrofów zadziała.
+# natomiast jeśli będzie więcej plików z .txt to musimy pamiętać aby użyć apostrofów, ponieważ jeśli tego nie zrobimy to regex zostanie zresolwowany na etapie polecenia w terminalu, a nie na etapie wykonywania skryptu

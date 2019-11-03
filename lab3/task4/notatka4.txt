@@ -1,0 +1,78 @@
+
+Zad.1
+    Zapoznałem się z programem "ps" 
+    Zostały przetestowane następujące komendy:
+    ps
+    ps -f
+    ps -l
+    ps -u
+    ps -t
+    ps -p
+    ps -aux 
+    ps -eo pid,ppid,cmd
+
+    W chwili przykłądowego wykonania polecenia ps istniały dwa procesy.
+
+Zad.2
+    Zostały utworzone trzy skrypty
+    A.sh
+    #!/bin/bash
+    ./B.sh
+
+    B.sh 
+    #!/bin/bash
+    ./C.sh
+
+    C.sh
+    #!/bin/bash
+    sleep 120
+
+    Następnie skryptą zostało nadane prawo do wykonania przy pomocy chmod +x nazwa-skryptu
+
+    Następnie został uruchomiony skrypt A.sh i w nowym oknie terminala została wywołana komenda ps -eo pid,ppid,cmd
+
+    PID   PPID CMD
+    7374  5677 /bin/bash ./A.sh
+    7375  7374 /bin/bash ./B.sh
+    7376  7375 /bin/bash ./C.sh
+
+    Następnie został zabity proces A.sh przy pomocy polecenia kill -9 7374
+
+    rezultat
+    PID   PPID CMD
+    7375     1 /bin/bash ./B.sh
+    7376  7375 /bin/bash ./C.sh
+
+    Jak widzimy proces osierocony został poprawnie zaadoptowany przez init
+
+Zad.3
+    Utworzono 3 skrypty i nadano im prawo do wykonywania
+    Wszystkie o zawartości:
+    #!/bin/bash
+    sleep 120
+
+    następnie uruchomiono jednocześnie te trzy skrypty przy pomocy plecenia ./skr1.sh | ./skr2.s
+    h | ./skr3.sh
+
+    rezultat:
+    PID   PPID CMD
+    7795  5677 /bin/bash ./skr1.sh
+    7796  5677 /bin/bash ./skr2.sh
+    7797  5677 /bin/bash ./skr3.sh
+
+    PID tych procesów jest kolejno o jeden wyższy, natomaist PPID jest taki sam. Oznacza to że procesy posiadają jednego tego samego rodzica.
+
+Zad.4
+    Został utworzony potok przy pomocy polecenia: mknod potok p
+
+    Następnie zostały utworzone cztery okna terminala i w każdym katalog roboczy został ustawiony na katalog w którym przed chwilą został utworzony potok.
+    W dwa okna terminala zostały ustawione aby słuchać na potoku przy pomocy polecenia "cat potok", a pozostałe dwa okna zostaly ustawione aby pisać do potoku przy pomocy polecenia: "cat > potok"
+
+    Następnie zostały wprowadzone dane do potoku.
+    System rozdzialał dane w sposób losowy to znaczy taki że wprowadzona linijka do potoku pojawiała się raz w jednym oknie terminala które słuchalo na potoku a raz w drugim.
+
+    Zabicie poleceniem kill procesów cat piszących do potoku nie wpłyneło w żaden sposób na procesy cat słuchające na potoku, mianowicie procesy słuchające dalej funkcjonowały w dodatku po ponownym uruchomieniu procesu piszącego cat, procesy sluchające funkcjonowały poprawnie i wyświetlały wprowadzone dane.
+
+    Zabicie polecenim kill procesów sluchających na potoku także nie wpłyneło na procesy piszące na potoku. Natomiast po wprowadzeniu danych do procesu piszącego a następnie otwarciu nowego procesu słuchającego natychmiast zostały wyświetlone dane które zostały wprowadzone w momencie gdy nie był otwarty żaden proces słuchający
+
+

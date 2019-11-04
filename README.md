@@ -37,7 +37,7 @@
   * W przypadku uruchamiania skryptu jest to ściężka w której znajduję się skrypt
 * Ścieżka bezwględna - to ścieżka rozpoczynająca się od naszego katalogu domowego `~`, lub katalogu głównego `/`
 * Switche mogą być łączone ze sobą w dowolnej kolejności: `ls -l -a` == `ls -a -l` == `ls -la` == `ls -al`
-* **Aby uruchomić nowy proces z poziomu terminala oraz niedopuścić do sytuacji zamrożenia okna terminala na czas pracy nowego procesu musimy dodać znak ampersand `&` na koniec komendy. Np. `gedit plik.txt &`**
+* **Aby uruchomić nowy proces z poziomu terminala oraz niedopuścić do sytuacji zamrożenia okna terminala na czas pracy nowego procesu musimy dodać znak ampersand `&` na koniec komendy. Np. `gedit plik.txt &`, spowoduje to start nowego procesu w tle. Jeżeli zapomniałeś dodać `&` na końcu polecenia, możesz w terminalu kliknąć `ctrl+z` a następnie wpisać polecenie `bg` aby wznowić pracę procesu ale w tle, aby wznowić pracę procesu na pierwszy planie wpisujemy polecenie `fg`**
 * Spis komend Unixowych - https://en.wikipedia.org/wiki/List_of_Unix_commands
   
 ## Skróty klawiszowe ##

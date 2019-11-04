@@ -1,17 +1,20 @@
 
 Zad.1
-    Zapoznałem się z programem "ps" 
-    Zostały przetestowane następujące komendy:
+    Zapoznałem się z programem "ps" (process status), który dostarcza informacji na temat obecnie działających procesów w systemie komputerowym. Zostały przetestowane następujące komendy:
     ps
     ps -f
     ps -l
     ps -u
     ps -t
     ps -p
-    ps -aux 
+    ps -aux # ta komenda wylistuje wszystkie działające procesy 
+        switch -a: mówi ps aby wylistować procesy wszystkich użytkowników
+        switch -u: mówi ps aby dostarczyć szczegółowe informacje na temat każdego procesu
+        swtich -x: mówi ps aby wyświetlił informacje o procesach demonach (procesy działające w tle)
     ps -eo pid,ppid,cmd
 
     W chwili przykłądowego wykonania polecenia ps istniały dwa procesy.
+    # więcej informacji http://www.linfo.org/ps.html
 
 Zad.2
     Zostały utworzone trzy skrypty

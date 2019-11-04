@@ -1,0 +1,64 @@
+Zad. 1
+    wysłanie sygnału SIGKILL za pomocą kill -9 pid-procesu zabiło proces. Pozostały sygnały których obsługe zaimplementowano w skrypcie zostały poprawnie zhandlowane przez instrukcje trap
+
+Zad. 2
+    Aby zatrzymać proces: kill -SIGSTOP [pid]
+    Aby wznowić proces: kill -SIGCONT [pid]
+
+    Wysłanie sygnału SIGSTOP zatrzymało proces, nie można wtedy było używać programu.
+    Późniejsze wysłanie sygnału SIGCONT wznowiło pracę procesu.
+
+Zad. 3
+    Polecenie ulimit służy do ustawiania limitów zasobów systemu komputerowego dla danego użytkownika, oraz inspekcji tych limitów.
+
+    Wywołanie polecenia ulimit:
+    patryk@dell:~$ ulimit
+    unlimited
+
+    Powyższy output oznacza iż użytkownik patryk ma nielimitowany dostęp do zasobów.
+
+    Aby dostać bardziej szczegółowy raport na temat limitów musimy użyć switcha: -a
+
+    patryk@dell:~$ ulimit -a
+    core file size          (blocks, -c) 0
+    data seg size           (kbytes, -d) unlimited
+    scheduling priority             (-e) 0
+    file size               (blocks, -f) unlimited
+    pending signals                 (-i) 63170
+    max locked memory       (kbytes, -l) 16384
+    max memory size         (kbytes, -m) unlimited
+    open files                      (-n) 1024
+    pipe size            (512 bytes, -p) 8
+    POSIX message queues     (bytes, -q) 819200
+    real-time priority              (-r) 0
+    stack size              (kbytes, -s) 8192
+    cpu time               (seconds, -t) unlimited
+    max user processes              (-u) 63170
+    virtual memory          (kbytes, -v) unlimited
+    file locks                      (-x) unlimited
+
+    Aby otrzymać informacje obecnym limicie uruchomionych procesów musimy użyć polecenia ulimit -u
+
+    Aby otrzymać informacje o ilości obecnie uruchomionych procesów na naszym systemu używamy zaklęcia: ps -A --no-headers | wc -l
+        wc -l = wyświetla ilość znaków nowej lini które zostały otrzymane od polecenia ps -A --no-headers. w efekcie otrzymujemy ilość działających procesów.
+    
+    Po wywołaniu powyższego polecenia okazało się że w systemie uruchomione jest 255 procesów, próba ustawienia znacznie małej ilości procesów np. 700 i poniżej, przy pomocy ulimit -u 700, skutkuje błędem:
+    bash: fork: retry: Resource temporarily unavailable
+
+Zad. 4
+    uruchomienie jednego skryptu (zad4.sh) który w nieskończonej pętli printuję informacje o dacie i godzinie dało zużycie procesora na poziomie około 20%
+
+    PID     USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    20713   patryk    20   0   21212   3196   2928 S  19.6  0.0   0:09.35 zad4.sh  
+
+    Ustawienie większej wartości liczby nice przy pomocy polecenia renice 10 -p 20713, poskutkowało bardzo niewielkim zmniejszeniem zużycia procesora.
+
+    Następnie ten sam skrypt uruchomiony 3 razy 
+    PID     USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    19955   patryk    20   0   21212   3268   3004 S  17.2  0.0   0:11.54 zad4.sh     
+    25966   patryk    20   0   21212   3216   2952 S  17.2  0.0   0:10.84 zad4.sh     
+    12211   patryk    30  10   21212   3256   2988 S  16.9  0.0   0:09.65 zad4.sh 
+
+    Tutaj efekt jest już bardziej zaauważalny i widzimy że zwięszkenie wartości liczby nice poskutkowało zmniejszeniem priorytetu dla procesu 12211 oraz zmniejszyło jego priorytet wykonywania względem innych działających procesów.
+    
+

@@ -1,0 +1,592 @@
+Script started on 2019-11-05 17:46:51+0100
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps
+  PID TTY          TIME CMD
+ 5379 pts/2    00:00:00 bash
+ 5401 pts/2    00:00:00 ps
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+patryk    5379  5378  0 17:46 pts/2    00:00:00 bash -i
+patryk    5684  5379  0 18:07 pts/2    00:00:00 ps -f
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000  5379  5378  0  80   0 -  7802 wait   pts/2    00:00:00 bash
+4 R  1000  5691  5379  0  80   0 -  9309 -      pts/2    00:00:00 ps
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps -u
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+patryk    1471  0.0  0.0 213352  5956 tty1     Ssl+ 17:37   0:00 /usr/lib/gdm3/g
+patryk    1485  1.8  0.6 552200 110808 tty1    Sl+  17:37   0:33 /usr/lib/xorg/X
+patryk    1604  0.0  0.0 560580 14376 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    1739  2.1  1.5 3721892 246236 tty1   Sl+  17:37   0:39 /usr/bin/gnome-
+patryk    1827  0.0  0.0 436716  8160 tty1     Sl   17:37   0:01 ibus-daemon --x
+patryk    1831  0.0  0.0 281980  6684 tty1     Sl   17:37   0:00 /usr/lib/ibus/i
+patryk    1833  0.0  0.1 345196 20544 tty1     Sl   17:37   0:00 /usr/lib/ibus/i
+patryk    1999  0.0  0.1 592168 22264 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2012  0.0  0.0 350548 10012 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2015  0.0  0.0 424568  5876 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2021  0.0  0.0 276956  5112 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2027  0.0  0.0 454204  9364 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2031  0.0  0.1 495788 21964 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2032  0.0  0.1 429664 21056 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2043  0.0  0.0 452904  9048 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2046  0.0  0.0 334096  8184 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2080  0.0  0.0 279396  5804 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2081  0.0  0.1 344820 20164 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2082  0.0  0.1 669272 22800 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2086  0.0  0.0 470972 13736 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2088  0.0  0.0 365952  7020 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2098  0.0  0.1 507824 21468 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2102  0.0  0.1 867800 23752 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2110  0.0  0.0 279404  5852 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2161  0.0  0.3 900808 62700 tty1     Sl+  17:37   0:01 nautilus-deskto
+patryk    2164  0.0  0.0 271936  6608 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2216  0.0  0.0 509988 12452 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2258  0.0  0.0 206112  6516 tty1     Sl   17:37   0:00 /usr/lib/ibus/i
+patryk    2396  0.0  0.2 619356 47968 tty1     Sl+  17:37   0:01 /usr/bin/python
+patryk    3026  0.0  0.0  79616 16080 tty1     S+   17:37   0:00 python3 /usr/sh
+patryk    3291  0.1  0.9 1387664 158036 tty1   SLl+ 17:38   0:03 /usr/bin/gnome-
+patryk    3293  0.0  0.1 594012 22412 tty1     Sl+  17:38   0:00 update-notifier
+patryk    3653  0.5  0.7 1228352 122572 tty1   Sl+  17:39   0:08 /usr/share/code
+patryk    3657  0.0  0.2 377236 38428 tty1     S+   17:39   0:00 /usr/share/code
+patryk    3686  0.2  0.4 521996 70816 tty1     Sl+  17:39   0:05 /usr/share/code
+patryk    3698  1.3  1.3 986720 215944 tty1    Sl+  17:39   0:22 /usr/share/code
+patryk    3740  0.1  0.7 715136 117536 tty1    Sl+  17:39   0:02 /usr/share/code
+patryk    3741  0.0  0.0  31180  5084 pts/0    Ss+  17:39   0:00 /bin/bash
+patryk    3774  0.0  0.4 600072 66416 tty1     Sl+  17:39   0:00 /usr/share/code
+patryk    3815  0.0  0.6 762872 99656 tty1     Sl+  17:39   0:01 /usr/share/code
+patryk    3841  0.0  0.1 790836 32120 tty1     Sl+  17:39   0:00 /usr/lib/deja-d
+patryk    3883  0.0  0.0  31304  5512 pts/1    Ss   17:40   0:00 bash
+patryk    4568  5.6  2.1 3192356 358728 tty1   Sl+  17:41   1:28 /snap/firefox/2
+patryk    4749  0.8  1.3 2999664 215672 tty1   Sl+  17:41   0:13 /snap/firefox/2
+patryk    4854  2.6  1.7 2941444 283044 tty1   Sl+  17:41   0:41 /snap/firefox/2
+patryk    4953  7.5  1.1 3018496 195248 tty1   Sl+  17:41   1:59 /snap/firefox/2
+patryk    4961  0.0  0.6 2556884 104960 tty1   Sl+  17:41   0:01 /snap/firefox/2
+patryk    4972  0.0  0.5 2528344 84512 tty1    Sl+  17:41   0:01 /snap/firefox/2
+patryk    4984  0.0  0.5 2528084 85056 tty1    Sl+  17:41   0:01 /snap/firefox/2
+patryk    5010  0.0  0.5 2528344 84652 tty1    Sl+  17:41   0:01 /snap/firefox/2
+patryk    5034  0.0  0.5 2528084 84732 tty1    Sl+  17:41   0:01 /snap/firefox/2
+patryk    5084  0.2  1.0 2726576 179276 tty1   Sl+  17:41   0:03 /snap/firefox/2
+patryk    5378  0.0  0.0  30572  2704 pts/1    S+   17:46   0:00 script task4-lo
+patryk    5379  0.0  0.0  31208  5380 pts/2    Ss   17:46   0:00 bash -i
+patryk    5697  0.0  0.0  47992  3600 pts/2    R+   18:08   0:00 ps -u
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps -t
+  PID TTY      STAT   TIME COMMAND
+ 5379 pts/2    Ss     0:00 bash -i
+ 5704 pts/2    R+     0:00 ps -t
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ pis [K[K[Ks -p
+error: list of process IDs must follow -p
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps -p 5697
+  PID TTY          TIME CMD
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps -p 5697[K[K[K[K1
+  PID TTY          TIME CMD
+    1 ?        00:00:02 systemd
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps -p 1[K5379
+  PID TTY          TIME CMD
+ 5379 pts/2    00:00:00 bash
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps
+  PID TTY          TIME CMD
+ 5379 pts/2    00:00:00 bash
+ 5756 pts/2    00:00:00 ps
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps -p [K[K[K[K[K[Kps -aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.1  0.0 225644  9368 ?        Ss   17:37   0:02 /sbin/init spla
+root         2  0.0  0.0      0     0 ?        S    17:37   0:00 [kthreadd]
+root         4  0.0  0.0      0     0 ?        I<   17:37   0:00 [kworker/0:0H]
+root         6  0.0  0.0      0     0 ?        I<   17:37   0:00 [mm_percpu_wq]
+root         7  0.0  0.0      0     0 ?        S    17:37   0:00 [ksoftirqd/0]
+root         8  0.1  0.0      0     0 ?        I    17:37   0:02 [rcu_sched]
+root         9  0.0  0.0      0     0 ?        I    17:37   0:00 [rcu_bh]
+root        10  0.0  0.0      0     0 ?        S    17:37   0:00 [migration/0]
+root        11  0.0  0.0      0     0 ?        S    17:37   0:00 [watchdog/0]
+root        12  0.0  0.0      0     0 ?        S    17:37   0:00 [cpuhp/0]
+root        13  0.0  0.0      0     0 ?        S    17:37   0:00 [cpuhp/1]
+root        14  0.0  0.0      0     0 ?        S    17:37   0:00 [watchdog/1]
+root        15  0.0  0.0      0     0 ?        S    17:37   0:00 [migration/1]
+root        16  0.0  0.0      0     0 ?        S    17:37   0:00 [ksoftirqd/1]
+root        18  0.0  0.0      0     0 ?        I<   17:37   0:00 [kworker/1:0H]
+root        19  0.0  0.0      0     0 ?        S    17:37   0:00 [cpuhp/2]
+root        20  0.0  0.0      0     0 ?        S    17:37   0:00 [watchdog/2]
+root        21  0.0  0.0      0     0 ?        S    17:37   0:00 [migration/2]
+root        22  0.0  0.0      0     0 ?        S    17:37   0:00 [ksoftirqd/2]
+root        24  0.0  0.0      0     0 ?        I<   17:37   0:00 [kworker/2:0H]
+root        25  0.0  0.0      0     0 ?        S    17:37   0:00 [cpuhp/3]
+root        26  0.0  0.0      0     0 ?        S    17:37   0:00 [watchdog/3]
+root        27  0.0  0.0      0     0 ?        S    17:37   0:00 [migration/3]
+root        28  0.0  0.0      0     0 ?        S    17:37   0:00 [ksoftirqd/3]
+root        30  0.0  0.0      0     0 ?        I<   17:37   0:00 [kworker/3:0H]
+root        31  0.0  0.0      0     0 ?        S    17:37   0:00 [kdevtmpfs]
+root        32  0.0  0.0      0     0 ?        I<   17:37   0:00 [netns]
+root        33  0.0  0.0      0     0 ?        S    17:37   0:00 [rcu_tasks_kthr
+root        34  0.0  0.0      0     0 ?        S    17:37   0:00 [kauditd]
+root        38  0.0  0.0      0     0 ?        S    17:37   0:00 [khungtaskd]
+root        39  0.0  0.0      0     0 ?        S    17:37   0:00 [oom_reaper]
+root        40  0.0  0.0      0     0 ?        I<   17:37   0:00 [writeback]
+root        41  0.0  0.0      0     0 ?        S    17:37   0:00 [kcompactd0]
+root        42  0.0  0.0      0     0 ?        SN   17:37   0:00 [ksmd]
+root        43  0.0  0.0      0     0 ?        SN   17:37   0:00 [khugepaged]
+root        44  0.0  0.0      0     0 ?        I<   17:37   0:00 [crypto]
+root        45  0.0  0.0      0     0 ?        I<   17:37   0:00 [kintegrityd]
+root        46  0.0  0.0      0     0 ?        I<   17:37   0:00 [kblockd]
+root        47  0.0  0.0      0     0 ?        I<   17:37   0:00 [ata_sff]
+root        49  0.0  0.0      0     0 ?        I<   17:37   0:00 [md]
+root        50  0.0  0.0      0     0 ?        I<   17:37   0:00 [edac-poller]
+root        51  0.0  0.0      0     0 ?        I<   17:37   0:00 [devfreq_wq]
+root        52  0.0  0.0      0     0 ?        I<   17:37   0:00 [watchdogd]
+root        55  0.0  0.0      0     0 ?        S    17:37   0:00 [kswapd0]
+root        56  0.0  0.0      0     0 ?        I<   17:37   0:00 [kworker/u9:0]
+root        57  0.0  0.0      0     0 ?        S    17:37   0:00 [ecryptfs-kthre
+root        99  0.0  0.0      0     0 ?        I<   17:37   0:00 [kthrotld]
+root       100  0.0  0.0      0     0 ?        I<   17:37   0:00 [acpi_thermal_p
+root       102  0.0  0.0      0     0 ?        I    17:37   0:00 [kworker/3:1]
+root       106  0.0  0.0      0     0 ?        I<   17:37   0:00 [ipv6_addrconf]
+root       115  0.0  0.0      0     0 ?        I<   17:37   0:00 [kstrp]
+root       132  0.0  0.0      0     0 ?        I<   17:37   0:00 [charger_manage
+root       183  0.0  0.0      0     0 ?        S    17:37   0:00 [scsi_eh_0]
+root       184  0.0  0.0      0     0 ?        I<   17:37   0:00 [scsi_tmf_0]
+root       185  0.0  0.0      0     0 ?        S    17:37   0:00 [scsi_eh_1]
+root       186  0.0  0.0      0     0 ?        I<   17:37   0:00 [scsi_tmf_1]
+root       187  0.0  0.0      0     0 ?        S    17:37   0:00 [scsi_eh_2]
+root       188  0.0  0.0      0     0 ?        I<   17:37   0:00 [scsi_tmf_2]
+root       199  0.0  0.0      0     0 ?        I<   17:37   0:00 [kworker/0:1H]
+root       228  0.0  0.0      0     0 ?        S    17:37   0:00 [jbd2/sda8-8]
+root       229  0.0  0.0      0     0 ?        I<   17:37   0:00 [ext4-rsv-conve
+root       268  0.0  0.3 173172 50108 ?        S<s  17:37   0:00 /lib/systemd/sy
+root       275  0.0  0.0      0     0 ?        I<   17:37   0:00 [kworker/1:1H]
+root       277  0.0  0.0      0     0 ?        I<   17:37   0:00 [kworker/3:1H]
+root       278  0.0  0.0      0     0 ?        I<   17:37   0:00 [kworker/2:1H]
+root       286  0.0  0.0  47792  6124 ?        Ss   17:37   0:01 /lib/systemd/sy
+root       327  0.0  0.0      0     0 ?        S    17:37   0:00 [irq/31-smo8800
+root       328  0.0  0.0      0     0 ?        S    17:37   0:00 [irq/51-DELL078
+root       330  0.0  0.0      0     0 ?        S    17:37   0:00 [irq/128-mei_me
+root       331  0.0  0.0      0     0 ?        I    17:37   0:00 [kworker/u8:4]
+root       361  0.0  0.0      0     0 ?        I<   17:37   0:00 [cfg80211]
+root       365  0.0  0.0      0     0 ?        S    17:37   0:00 [i915/signal:0]
+root       366  0.0  0.0      0     0 ?        S    17:37   0:00 [i915/signal:1]
+root       367  0.0  0.0      0     0 ?        S    17:37   0:00 [i915/signal:2]
+root       368  0.0  0.0      0     0 ?        S    17:37   0:00 [i915/signal:4]
+root       371  0.0  0.0      0     0 ?        I<   17:37   0:00 [kmemstick]
+root       378  0.0  0.0      0     0 ?        I<   17:37   0:00 [kworker/u9:2]
+root       379  0.0  0.0      0     0 ?        S    17:37   0:00 [irq/131-iwlwif
+root       380  0.0  0.0      0     0 ?        I<   17:37   0:00 [nvkm-disp]
+root       381  0.0  0.0      0     0 ?        I    17:37   0:00 [kworker/0:3]
+root       502  0.0  0.0      0     0 ?        I    17:37   0:00 [kworker/2:3]
+root       516  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop0]
+root       517  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop1]
+root       527  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop2]
+root       536  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop3]
+root       543  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop4]
+root       601  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop5]
+root       606  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop6]
+root       614  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop7]
+root       625  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop8]
+root       628  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop9]
+root       641  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop10]
+root       652  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop11]
+root       659  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop12]
+systemd+   676  0.0  0.0  70892  6256 ?        Ss   17:37   0:00 /lib/systemd/sy
+systemd+   679  0.0  0.0 146112  3368 ?        Ssl  17:37   0:00 /lib/systemd/sy
+root       684  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop13]
+root       686  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop14]
+root       693  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop15]
+root       700  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop16]
+root       701  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop17]
+root       702  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop18]
+root       704  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop19]
+root       705  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop20]
+root       706  0.0  0.0      0     0 ?        S<   17:37   0:00 [loop21]
+root       707  0.0  0.0      0     0 ?        I<   17:37   0:00 [ttm_swap]
+root       851  0.0  0.0  39648  3164 ?        Ss   17:37   0:00 /usr/sbin/cron 
+root       857  0.0  0.0 295956  7052 ?        Ssl  17:37   0:00 /usr/lib/accoun
+avahi      859  0.0  0.0  47264  3288 ?        Ss   17:37   0:00 avahi-daemon: r
+root       861  0.0  0.0  70732  6116 ?        Ss   17:37   0:00 /lib/systemd/sy
+root       864  0.0  0.0  36484  4544 ?        Ss   17:37   0:00 /usr/lib/blueto
+root       865  0.0  0.0 108908  8100 ?        Ss   17:37   0:00 /usr/sbin/cupsd
+root       867  0.0  0.0 110480  3464 ?        Ssl  17:37   0:00 /usr/sbin/irqba
+message+   870  0.0  0.0  51508  5888 ?        Ss   17:37   0:00 /usr/bin/dbus-d
+avahi      891  0.0  0.0  47076   340 ?        S    17:37   0:00 avahi-daemon: c
+root       960  0.0  0.0  45480  7784 ?        Ss   17:37   0:00 /sbin/wpa_suppl
+root       981  0.0  0.1 178864 17236 ?        Ssl  17:37   0:00 /usr/bin/python
+root       984  0.0  0.0 434332  9452 ?        Ssl  17:37   0:00 /usr/sbin/Modem
+root       987  0.0  0.1 569768 17424 ?        Ssl  17:37   0:01 /usr/sbin/Netwo
+root       992  0.1  0.1 1380720 25348 ?       Ssl  17:37   0:02 /usr/lib/snapd/
+root       995  0.0  0.0 503872 12188 ?        Ssl  17:37   0:00 /usr/lib/udisks
+root       996  0.0  0.0 188216  9412 ?        Ssl  17:37   0:00 /usr/sbin/therm
+root      1004  0.0  0.0   4552   748 ?        Ss   17:37   0:00 /usr/sbin/acpid
+syslog    1008  0.0  0.0 263036  4656 ?        Ssl  17:37   0:00 /usr/sbin/rsysl
+daemon    1009  0.0  0.0  28332  2360 ?        Ss   17:37   0:00 /usr/sbin/atd -
+root      1059  0.0  0.0 292884  8788 ?        Ssl  17:37   0:00 /usr/lib/policy
+root      1061  0.0  0.0 303656 10772 ?        Ssl  17:37   0:00 /usr/sbin/cups-
+root      1247  0.0  0.1 195560 19972 ?        Ssl  17:37   0:00 /usr/bin/python
+root      1256  0.0  0.0 535164  9184 ?        Ssl  17:37   0:01 /snap/canonical
+root      1281  0.0  0.2 1129716 42396 ?       Ssl  17:37   0:00 /usr/bin/contai
+root      1286  0.0  0.0 309408  8132 ?        Ssl  17:37   0:00 /usr/sbin/gdm3
+root      1349  0.0  0.0 273084  8420 ?        Sl   17:37   0:00 gdm-session-wor
+mysql     1361  0.1  1.0 1351384 177388 ?      Sl   17:37   0:02 /usr/sbin/mysql
+patryk    1382  0.0  0.0  77172  8296 ?        Ss   17:37   0:00 /lib/systemd/sy
+patryk    1388  0.0  0.0 114256  2840 ?        S    17:37   0:00 (sd-pam)
+patryk    1466  0.0  0.0 437064  8232 ?        SLl  17:37   0:00 /usr/bin/gnome-
+patryk    1471  0.0  0.0 213352  5956 tty1     Ssl+ 17:37   0:00 /usr/lib/gdm3/g
+patryk    1485  1.8  0.6 552208 111148 tty1    Sl+  17:37   0:34 /usr/lib/xorg/X
+patryk    1601  0.0  0.0  51016  5560 ?        Ss   17:37   0:00 /usr/bin/dbus-d
+patryk    1604  0.0  0.0 560580 14376 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    1710  0.0  0.0  11304   324 ?        Ss   17:37   0:00 /usr/bin/ssh-ag
+patryk    1713  0.0  0.0 349312  6356 ?        Ssl  17:37   0:00 /usr/lib/at-spi
+patryk    1718  0.0  0.0  49928  4244 ?        S    17:37   0:00 /usr/bin/dbus-d
+patryk    1720  0.0  0.0 220788  6832 ?        Sl   17:37   0:00 /usr/lib/at-spi
+patryk    1739  2.1  1.5 3721824 245932 tty1   Sl+  17:37   0:41 /usr/bin/gnome-
+root      1745  0.0  0.0 323660  8860 ?        Ssl  17:37   0:00 /usr/lib/upower
+patryk    1783  0.0  0.0 293192  7156 ?        Ssl  17:37   0:00 /usr/lib/gvfs/g
+patryk    1788  0.0  0.0 416116  5340 ?        Sl   17:37   0:00 /usr/lib/gvfs/g
+patryk    1800  0.0  0.0 1435784 11932 ?       S<l  17:37   0:00 /usr/bin/pulsea
+rtkit     1801  0.0  0.0 183504  2880 ?        SNsl 17:37   0:00 /usr/lib/rtkit/
+root      1817  0.0  0.0      0     0 ?        S<   17:37   0:00 [krfcommd]
+patryk    1827  0.1  0.0 436716  8160 tty1     Sl   17:37   0:02 ibus-daemon --x
+patryk    1831  0.0  0.0 281980  6684 tty1     Sl   17:37   0:00 /usr/lib/ibus/i
+patryk    1833  0.0  0.1 345196 20544 tty1     Sl   17:37   0:00 /usr/lib/ibus/i
+patryk    1835  0.0  0.0 279912  6060 ?        Sl   17:37   0:00 /usr/lib/ibus/i
+patryk    1844  0.0  0.0 272784  5204 ?        Ssl  17:37   0:00 /usr/libexec/xd
+patryk    1875  0.0  0.1 690164 20968 ?        Sl   17:37   0:00 /usr/lib/gnome-
+patryk    1879  0.0  0.1 693436 25040 ?        Ssl  17:37   0:00 /usr/lib/evolut
+patryk    1887  0.0  0.1 777516 32348 ?        SLl  17:37   0:00 /usr/lib/gnome-
+root      1906  0.0  0.0 298092  6808 ?        Ssl  17:37   0:00 /usr/lib/x86_64
+patryk    1915  0.0  0.0 188132  5356 ?        Sl   17:37   0:00 /usr/lib/dconf/
+patryk    1924  0.0  0.0 304580  7500 ?        Sl   17:37   0:00 /usr/lib/gnome-
+patryk    1944  0.0  0.0 307784  9076 ?        Ssl  17:37   0:00 /usr/lib/gvfs/g
+patryk    1949  0.0  0.0 277096  4936 ?        Ssl  17:37   0:00 /usr/lib/gvfs/g
+patryk    1967  0.0  0.0 380036  7508 ?        Ssl  17:37   0:00 /usr/lib/gvfs/g
+root      1973  0.0  0.0  25992  6188 ?        S    17:37   0:00 /sbin/dhclient 
+patryk    1977  0.0  0.0 290012  6668 ?        Ssl  17:37   0:00 /usr/lib/gvfs/g
+patryk    1982  0.0  0.0 275268  6100 ?        Ssl  17:37   0:00 /usr/lib/gvfs/g
+root      1990  0.4  0.2 450156 39000 ?        Ssl  17:37   0:08 /usr/lib/packag
+patryk    1999  0.0  0.1 592168 22264 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2012  0.0  0.0 350548 10012 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2015  0.0  0.0 424568  5876 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2021  0.0  0.0 276956  5112 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2027  0.0  0.0 454204  9364 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2031  0.0  0.1 495788 21964 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2032  0.0  0.1 429664 21056 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2043  0.0  0.0 452904  9048 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2046  0.0  0.0 334096  8184 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2080  0.0  0.0 279396  5804 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2081  0.0  0.1 344820 20164 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2082  0.0  0.1 669272 22800 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2086  0.0  0.0 470972 13736 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2088  0.0  0.0 365952  7020 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2098  0.0  0.1 507824 21468 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2102  0.0  0.1 867800 23752 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2110  0.0  0.0 279404  5852 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2161  0.0  0.3 900808 62700 tty1     Sl+  17:37   0:01 nautilus-deskto
+patryk    2164  0.0  0.0 271936  6608 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+colord    2168  0.0  0.0 326208 14140 ?        Ssl  17:37   0:00 /usr/lib/colord
+patryk    2213  0.0  0.0 369596  7448 ?        Sl   17:37   0:00 /usr/lib/gvfs/g
+patryk    2216  0.0  0.0 509988 12452 tty1     Sl+  17:37   0:00 /usr/lib/gnome-
+patryk    2244  0.0  0.4 893400 67392 ?        Ssl  17:37   0:00 /usr/lib/evolut
+patryk    2258  0.0  0.0 206112  6516 tty1     Sl   17:37   0:00 /usr/lib/ibus/i
+patryk    2270  0.0  0.3 1145324 61972 ?       Sl   17:37   0:00 /usr/lib/evolut
+patryk    2287  0.0  0.1 733916 24020 ?        Ssl  17:37   0:00 /usr/lib/evolut
+patryk    2295  0.0  0.1 1018432 26724 ?       Sl   17:37   0:00 /usr/lib/evolut
+root      2317  0.0  0.5 1126516 83628 ?       Ssl  17:37   0:01 /usr/bin/docker
+whoopsie  2318  0.0  0.0 462188 12860 ?        Ssl  17:37   0:00 /usr/bin/whoops
+kernoops  2354  0.0  0.0  56940   420 ?        Ss   17:37   0:00 /usr/sbin/kerne
+kernoops  2358  0.0  0.0  56940   420 ?        Ss   17:37   0:00 /usr/sbin/kerne
+patryk    2361  0.0  0.0 206044  6120 ?        Ssl  17:37   0:00 /usr/lib/gvfs/g
+patryk    2396  0.0  0.2 619356 47968 tty1     Sl+  17:37   0:01 /usr/bin/python
+patryk    3026  0.0  0.0  79616 16080 tty1     S+   17:37   0:00 python3 /usr/sh
+patryk    3291  0.1  0.9 1387664 158036 tty1   SLl+ 17:38   0:03 /usr/bin/gnome-
+patryk    3293  0.0  0.1 594012 22412 tty1     Sl+  17:38   0:00 update-notifier
+root      3318  0.0  0.1 558288 23272 ?        Ssl  17:38   0:00 /usr/lib/fwupd/
+patryk    3653  0.5  0.7 1232452 122612 tty1   Sl+  17:39   0:09 /usr/share/code
+patryk    3657  0.0  0.2 377236 38428 tty1     S+   17:39   0:00 /usr/share/code
+patryk    3686  0.3  0.4 521932 70936 tty1     Sl+  17:39   0:06 /usr/share/code
+patryk    3698  1.4  1.3 1136172 224184 tty1   Sl+  17:39   0:25 /usr/share/code
+patryk    3740  0.1  0.7 715648 117792 tty1    Sl+  17:39   0:03 /usr/share/code
+patryk    3741  0.0  0.0  31180  5084 pts/0    Ss+  17:39   0:00 /bin/bash
+patryk    3774  0.0  0.4 600072 67472 tty1     Sl+  17:39   0:00 /usr/share/code
+patryk    3815  0.0  0.6 762872 99876 tty1     Sl+  17:39   0:01 /usr/share/code
+patryk    3841  0.0  0.1 790836 32120 tty1     Sl+  17:39   0:00 /usr/lib/deja-d
+patryk    3873  0.1  0.2 800556 36696 ?        Rsl  17:40   0:02 /usr/lib/gnome-
+patryk    3883  0.0  0.0  31304  5512 pts/1    Ss   17:40   0:00 bash
+patryk    3931  0.0  0.0 496616  5760 ?        Ssl  17:41   0:00 /usr/libexec/xd
+patryk    4147  0.0  0.1 544144 16820 ?        Sl   17:41   0:00 /usr/bin/snap u
+patryk    4568  5.3  2.1 3192356 358540 tty1   Sl+  17:41   1:28 /snap/firefox/2
+patryk    4749  0.8  1.3 2999664 215672 tty1   Sl+  17:41   0:13 /snap/firefox/2
+patryk    4854  2.5  1.7 2941444 283044 tty1   Sl+  17:41   0:41 /snap/firefox/2
+patryk    4953  7.2  1.1 2972016 183432 tty1   Sl+  17:41   1:59 /snap/firefox/2
+patryk    4961  0.0  0.6 2556884 104960 tty1   Sl+  17:41   0:01 /snap/firefox/2
+patryk    4972  0.0  0.5 2528344 84512 tty1    Sl+  17:41   0:01 /snap/firefox/2
+patryk    4984  0.0  0.5 2528084 85056 tty1    Sl+  17:41   0:01 /snap/firefox/2
+patryk    5010  0.0  0.5 2528344 84652 tty1    Sl+  17:41   0:01 /snap/firefox/2
+patryk    5034  0.0  0.5 2528084 84732 tty1    Sl+  17:41   0:01 /snap/firefox/2
+patryk    5084  0.2  1.0 2726576 179276 tty1   Sl+  17:41   0:03 /snap/firefox/2
+patryk    5378  0.0  0.0  30572  2704 pts/1    S+   17:46   0:00 script task4-lo
+patryk    5379  0.0  0.0  31208  5384 pts/2    Ss   17:46   0:00 bash -i
+root      5453  0.0  0.0      0     0 ?        I    17:48   0:00 [kworker/1:0]
+root      5454  0.0  0.0      0     0 ?        I    17:49   0:00 [kworker/3:2]
+root      5462  0.0  0.0      0     0 ?        I    17:50   0:00 [kworker/2:1]
+root      5615  0.0  0.0      0     0 ?        I    17:59   0:00 [kworker/u8:1]
+root      5629  0.0  0.0      0     0 ?        I    18:00   0:00 [kworker/0:0]
+root      5639  0.0  0.0      0     0 ?        I    18:00   0:00 [kworker/1:2]
+root      5662  0.0  0.0      0     0 ?        I    18:05   0:00 [kworker/u8:0]
+root      5672  0.0  0.0      0     0 ?        I    18:07   0:00 [kworker/1:1]
+root      5673  0.0  0.0      0     0 ?        I    18:07   0:00 [kworker/2:0]
+root      5677  0.0  0.0      0     0 ?        I    18:07   0:00 [kworker/0:1]
+root      5703  0.0  0.0      0     0 ?        I    18:08   0:00 [kworker/u8:2]
+root      5736  0.0  0.0      0     0 ?        I    18:08   0:00 [kworker/3:0]
+patryk    5762  0.0  0.0  47992  3704 pts/2    R+   18:09   0:00 ps -aux
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ps -eo pid,ppid,cmd
+  PID  PPID CMD
+    1     0 /sbin/init splash
+    2     0 [kthreadd]
+    4     2 [kworker/0:0H]
+    6     2 [mm_percpu_wq]
+    7     2 [ksoftirqd/0]
+    8     2 [rcu_sched]
+    9     2 [rcu_bh]
+   10     2 [migration/0]
+   11     2 [watchdog/0]
+   12     2 [cpuhp/0]
+   13     2 [cpuhp/1]
+   14     2 [watchdog/1]
+   15     2 [migration/1]
+   16     2 [ksoftirqd/1]
+   18     2 [kworker/1:0H]
+   19     2 [cpuhp/2]
+   20     2 [watchdog/2]
+   21     2 [migration/2]
+   22     2 [ksoftirqd/2]
+   24     2 [kworker/2:0H]
+   25     2 [cpuhp/3]
+   26     2 [watchdog/3]
+   27     2 [migration/3]
+   28     2 [ksoftirqd/3]
+   30     2 [kworker/3:0H]
+   31     2 [kdevtmpfs]
+   32     2 [netns]
+   33     2 [rcu_tasks_kthre]
+   34     2 [kauditd]
+   38     2 [khungtaskd]
+   39     2 [oom_reaper]
+   40     2 [writeback]
+   41     2 [kcompactd0]
+   42     2 [ksmd]
+   43     2 [khugepaged]
+   44     2 [crypto]
+   45     2 [kintegrityd]
+   46     2 [kblockd]
+   47     2 [ata_sff]
+   49     2 [md]
+   50     2 [edac-poller]
+   51     2 [devfreq_wq]
+   52     2 [watchdogd]
+   55     2 [kswapd0]
+   56     2 [kworker/u9:0]
+   57     2 [ecryptfs-kthrea]
+   99     2 [kthrotld]
+  100     2 [acpi_thermal_pm]
+  102     2 [kworker/3:1]
+  106     2 [ipv6_addrconf]
+  115     2 [kstrp]
+  132     2 [charger_manager]
+  183     2 [scsi_eh_0]
+  184     2 [scsi_tmf_0]
+  185     2 [scsi_eh_1]
+  186     2 [scsi_tmf_1]
+  187     2 [scsi_eh_2]
+  188     2 [scsi_tmf_2]
+  199     2 [kworker/0:1H]
+  228     2 [jbd2/sda8-8]
+  229     2 [ext4-rsv-conver]
+  268     1 /lib/systemd/systemd-journald
+  275     2 [kworker/1:1H]
+  277     2 [kworker/3:1H]
+  278     2 [kworker/2:1H]
+  286     1 /lib/systemd/systemd-udevd
+  327     2 [irq/31-smo8800]
+  328     2 [irq/51-DELL0786]
+  330     2 [irq/128-mei_me]
+  331     2 [kworker/u8:4]
+  361     2 [cfg80211]
+  365     2 [i915/signal:0]
+  366     2 [i915/signal:1]
+  367     2 [i915/signal:2]
+  368     2 [i915/signal:4]
+  371     2 [kmemstick]
+  378     2 [kworker/u9:2]
+  379     2 [irq/131-iwlwifi]
+  380     2 [nvkm-disp]
+  381     2 [kworker/0:3]
+  502     2 [kworker/2:3]
+  516     2 [loop0]
+  517     2 [loop1]
+  527     2 [loop2]
+  536     2 [loop3]
+  543     2 [loop4]
+  601     2 [loop5]
+  606     2 [loop6]
+  614     2 [loop7]
+  625     2 [loop8]
+  628     2 [loop9]
+  641     2 [loop10]
+  652     2 [loop11]
+  659     2 [loop12]
+  676     1 /lib/systemd/systemd-resolved
+  679     1 /lib/systemd/systemd-timesyncd
+  684     2 [loop13]
+  686     2 [loop14]
+  693     2 [loop15]
+  700     2 [loop16]
+  701     2 [loop17]
+  702     2 [loop18]
+  704     2 [loop19]
+  705     2 [loop20]
+  706     2 [loop21]
+  707     2 [ttm_swap]
+  851     1 /usr/sbin/cron -f
+  857     1 /usr/lib/accountsservice/accounts-daemon
+  859     1 avahi-daemon: running [dell.local]
+  861     1 /lib/systemd/systemd-logind
+  864     1 /usr/lib/bluetooth/bluetoothd
+  865     1 /usr/sbin/cupsd -l
+  867     1 /usr/sbin/irqbalance --foreground
+  870     1 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfil
+  891   859 avahi-daemon: chroot helper
+  960     1 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+  981     1 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+  984     1 /usr/sbin/ModemManager --filter-policy=strict
+  987     1 /usr/sbin/NetworkManager --no-daemon
+  992     1 /usr/lib/snapd/snapd
+  995     1 /usr/lib/udisks2/udisksd
+  996     1 /usr/sbin/thermald --no-daemon --dbus-enable
+ 1004     1 /usr/sbin/acpid
+ 1008     1 /usr/sbin/rsyslogd -n
+ 1009     1 /usr/sbin/atd -f
+ 1059     1 /usr/lib/policykit-1/polkitd --no-debug
+ 1061     1 /usr/sbin/cups-browsed
+ 1247     1 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-s
+ 1256     1 /snap/canonical-livepatch/88/canonical-livepatchd
+ 1281     1 /usr/bin/containerd
+ 1286     1 /usr/sbin/gdm3
+ 1349  1286 gdm-session-worker [pam/gdm-autologin]
+ 1361     1 /usr/sbin/mysqld --daemonize --pid-file=/run/mysqld/mysqld.pid
+ 1382     1 /lib/systemd/systemd --user
+ 1388  1382 (sd-pam)
+ 1466     1 /usr/bin/gnome-keyring-daemon --daemonize --login
+ 1471  1349 /usr/lib/gdm3/gdm-x-session --run-script env GNOME_SHELL_SESSION_MOD
+ 1485  1471 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthor
+ 1601  1382 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfi
+ 1604  1471 /usr/lib/gnome-session/gnome-session-binary --session=ubuntu
+ 1710  1604 /usr/bin/ssh-agent /usr/bin/im-launch env GNOME_SHELL_SESSION_MODE=u
+ 1713  1382 /usr/lib/at-spi2-core/at-spi-bus-launcher
+ 1718  1713 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/acces
+ 1720  1382 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+ 1739  1604 /usr/bin/gnome-shell
+ 1745     1 /usr/lib/upower/upowerd
+ 1783  1382 /usr/lib/gvfs/gvfsd
+ 1788  1382 /usr/lib/gvfs/gvfsd-fuse /run/user/1000/gvfs -f -o big_writes
+ 1800     1 /usr/bin/pulseaudio --start --log-target=syslog
+ 1801     1 /usr/lib/rtkit/rtkit-daemon
+ 1817     2 [krfcommd]
+ 1827  1739 ibus-daemon --xim --panel disable
+ 1831  1827 /usr/lib/ibus/ibus-dconf
+ 1833     1 /usr/lib/ibus/ibus-x11 --kill-daemon
+ 1835  1382 /usr/lib/ibus/ibus-portal
+ 1844  1382 /usr/libexec/xdg-permission-store
+ 1875  1382 /usr/lib/gnome-shell/gnome-shell-calendar-server
+ 1879  1382 /usr/lib/evolution/evolution-source-registry
+ 1887  1382 /usr/lib/gnome-online-accounts/goa-daemon
+ 1906     1 /usr/lib/x86_64-linux-gnu/boltd
+ 1915  1382 /usr/lib/dconf/dconf-service
+ 1924  1382 /usr/lib/gnome-online-accounts/goa-identity-service
+ 1944  1382 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+ 1949  1382 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+ 1967  1382 /usr/lib/gvfs/gvfs-afc-volume-monitor
+ 1973   987 /sbin/dhclient -d -q -sf /usr/lib/NetworkManager/nm-dhcp-helper -pf 
+ 1977  1382 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+ 1982  1382 /usr/lib/gvfs/gvfs-goa-volume-monitor
+ 1990     1 /usr/lib/packagekit/packagekitd
+ 1999  1604 /usr/lib/gnome-settings-daemon/gsd-power
+ 2012  1604 /usr/lib/gnome-settings-daemon/gsd-print-notifications
+ 2015  1604 /usr/lib/gnome-settings-daemon/gsd-rfkill
+ 2021  1604 /usr/lib/gnome-settings-daemon/gsd-screensaver-proxy
+ 2027  1604 /usr/lib/gnome-settings-daemon/gsd-sharing
+ 2031  1604 /usr/lib/gnome-settings-daemon/gsd-xsettings
+ 2032  1604 /usr/lib/gnome-settings-daemon/gsd-wacom
+ 2043  1604 /usr/lib/gnome-settings-daemon/gsd-smartcard
+ 2046  1604 /usr/lib/gnome-settings-daemon/gsd-sound
+ 2080  1604 /usr/lib/gnome-settings-daemon/gsd-a11y-settings
+ 2081  1604 /usr/lib/gnome-settings-daemon/gsd-clipboard
+ 2082  1604 /usr/lib/gnome-settings-daemon/gsd-color
+ 2086  1604 /usr/lib/gnome-settings-daemon/gsd-datetime
+ 2088  1604 /usr/lib/gnome-settings-daemon/gsd-housekeeping
+ 2098  1604 /usr/lib/gnome-settings-daemon/gsd-keyboard
+ 2102  1604 /usr/lib/gnome-settings-daemon/gsd-media-keys
+ 2110  1604 /usr/lib/gnome-settings-daemon/gsd-mouse
+ 2161  1604 nautilus-desktop
+ 2164  1604 /usr/lib/gnome-disk-utility/gsd-disk-utility-notify
+ 2168     1 /usr/lib/colord/colord
+ 2213  1783 /usr/lib/gvfs/gvfsd-trash --spawner :1.22 /org/gtk/gvfs/exec_spaw/0
+ 2216     1 /usr/lib/gnome-settings-daemon/gsd-printer
+ 2244  1382 /usr/lib/evolution/evolution-calendar-factory
+ 2258  1827 /usr/lib/ibus/ibus-engine-simple
+ 2270  2244 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory a
+ 2287  1382 /usr/lib/evolution/evolution-addressbook-factory
+ 2295  2287 /usr/lib/evolution/evolution-addressbook-factory-subprocess --factor
+ 2317     1 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.so
+ 2318     1 /usr/bin/whoopsie -f
+ 2354     1 /usr/sbin/kerneloops --test
+ 2358     1 /usr/sbin/kerneloops
+ 2361  1382 /usr/lib/gvfs/gvfsd-metadata
+ 2396  1604 /usr/bin/python3 /usr/bin/touchpad-indicator
+ 3026  2396 python3 /usr/share/touchpad-indicator/watchdog.py
+ 3291  1604 /usr/bin/gnome-software --gapplication-service
+ 3293  1604 update-notifier
+ 3318     1 /usr/lib/fwupd/fwupd
+ 3653  1739 /usr/share/code/code --unity-launch
+ 3657  3653 /usr/share/code/code --type=zygote --no-sandbox
+ 3686  3653 /usr/share/code/code --type=gpu-process --enable-features=SharedArra
+ 3698  3657 /usr/share/code/code --type=renderer --disable-color-correct-renderi
+ 3740  3698 /usr/share/code/code /usr/share/code/resources/app/out/bootstrap-for
+ 3741  3698 /bin/bash
+ 3774  3698 /usr/share/code/code /usr/share/code/resources/app/out/bootstrap-for
+ 3815  3657 /usr/share/code/code --type=renderer --disable-color-correct-renderi
+ 3841  1604 /usr/lib/deja-dup/deja-dup-monitor
+ 3873  1382 /usr/lib/gnome-terminal/gnome-terminal-server
+ 3883  3873 bash
+ 3931  1382 /usr/libexec/xdg-document-portal
+ 4147  1382 /usr/bin/snap userd
+ 4568  1739 /snap/firefox/274/firefox
+ 4749  4568 /snap/firefox/274/firefox-bin -contentproc -childID 1 -isForBrowser 
+ 4854  4568 /snap/firefox/274/firefox-bin -contentproc -childID 2 -isForBrowser 
+ 4953  4568 /snap/firefox/274/firefox-bin -contentproc -childID 3 -isForBrowser 
+ 4961  4568 /snap/firefox/274/firefox-bin -contentproc -childID 4 -isForBrowser 
+ 4972  4568 /snap/firefox/274/firefox-bin -contentproc -childID 5 -isForBrowser 
+ 4984  4568 /snap/firefox/274/firefox-bin -contentproc -childID 6 -isForBrowser 
+ 5010  4568 /snap/firefox/274/firefox-bin -contentproc -childID 7 -isForBrowser 
+ 5034  4568 /snap/firefox/274/firefox-bin -contentproc -childID 8 -isForBrowser 
+ 5084  4568 /snap/firefox/274/firefox-bin -contentproc -childID 9 -isForBrowser 
+ 5378  3883 script task4-log-psobow.txt
+ 5379  5378 bash -i
+ 5453     2 [kworker/1:0]
+ 5454     2 [kworker/3:2]
+ 5462     2 [kworker/2:1]
+ 5615     2 [kworker/u8:1]
+ 5629     2 [kworker/0:0]
+ 5639     2 [kworker/1:2]
+ 5662     2 [kworker/u8:0]
+ 5672     2 [kworker/1:1]
+ 5673     2 [kworker/2:0]
+ 5677     2 [kworker/0:1]
+ 5703     2 [kworker/u8:2]
+ 5736     2 [kworker/3:0]
+ 5768  5379 ps -eo pid,ppid,cmd
+[1;32mpatryk[0m@[1;32mdell[0m:[0;33m~/Documents/code/SCR-OS1/lab3/task4[0m [master[0m]$ ls
+[0m[01;32mA.sh[0m  [01;32mC.sh[0m         [40;33mpotok[0m    [01;32mskr2.sh[0m  task4-log-psobow.txt
+[01;32mB.sh[0

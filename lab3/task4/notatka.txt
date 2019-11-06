@@ -6,7 +6,7 @@ Zad.1
     ps -l
     ps -u
     ps -t
-    ps -p
+    ps -p proces-id
     ps -aux # ta komenda wylistuje wszystkie działające procesy 
         switch -a: mówi ps aby wylistować procesy wszystkich użytkowników
         switch -u: mówi ps aby dostarczyć szczegółowe informacje na temat każdego procesu
@@ -54,8 +54,7 @@ Zad.3
     #!/bin/bash
     sleep 120
 
-    następnie uruchomiono jednocześnie te trzy skrypty przy pomocy plecenia ./skr1.sh | ./skr2.s
-    h | ./skr3.sh
+    następnie uruchomiono jednocześnie te trzy skrypty przy pomocy plecenia ./skr1.sh | ./skr2.sh | ./skr3.sh
 
     rezultat:
     PID   PPID CMD

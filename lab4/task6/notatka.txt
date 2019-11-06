@@ -1,0 +1,133 @@
+(4p.) Napisz program wykonujący jakąś trywialną operację (np. ++i;) w nieskończonej pętli. Skompiluj i uruchom program, a następnie programem top sprawdź, czy Twój program pokazuje się w czołówce programów wykorzystujących cykle obliczeniowe komputera? 
+Przed przejściem do dalszych prac zabij program klawiszem Ctrl-C. Dodaj w pętli opóźnienie (sleep(1);, a najlepiej nanosleep(); z opóźnieniem np. 100 milisekund) i upewnij się, że po uruchomieniu tego programu nie pojawia się on już na szczycie listy top.
+
+Następnie sprawdź wysyłanie programowi różnych sygnałów poleceniem kill. 
+Dodaj w programie przechwytywanie sygnału/ów, i wykorzystując sygnały: SIGALRM, SIGTERM, SIGUSR1, SIGUSR2 wypróbuj następujące reakcje na sygnał: 
+(a) wyświetlenie komunikatu i zakończenie pracy programu, 
+(b) wyświetlenie komunikatu i powrót do wykonywania programu, 
+(c) wstrzymywanie odebrania sygnału (np. na 1000 iteracji w pętli), i następnie wznowienie odebrania sygnału, i 
+(d) całkowite ignorowanie sygnału. W raporcie wklej instrukcje programu deklarujące poszczególne reakcje na sygnał, i podsumuj uzyskane wyniki. 
+
+Raport:
+
+Początkowo utwożono najbardziej trywilną wersje programu, której jedynym zadaniem była inkrementacja zmiennej w nieskończonej pętli:
+
+// lab6.c
+int main() 
+{
+    int i = 0; 
+    while(1) 
+    {  
+        ++i;
+    }
+    return 0;
+} 
+
+Taki program skompilowano oraz skonsolidowano przy pomocy polecenia: gcc lab6.c 
+następnie uruchomiono program przy pomocy polecenia: ./a.out
+
+w programie top zaobserwowano bardzo wysokie zużycie procesora:
+
+// PID  USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND 
+// 7039 patryk    20   0    4376    716    652 R 100.0  0.0   0:14.47 a.out 
+
+następnie zmodyfikowano kod programu w sposób następujący:
+
+int main() 
+{
+    int i = 0; 
+    while(1) 
+    {  
+        ++i;
+        usleep(100); // usleep - suspend execution for microsecond intervals
+    }
+    return 0;
+} 
+
+Program ponownie skompilowano i uruchomiono, następnie zaobserwowano znacznie mniejsze zużycie procesora w programie top:
+
+// PID  USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND 
+// 7091 patryk    20   0    4376    796    732 S   4.6  0.0   0:02.03 a.out  
+
+
+Następnie dodany handlery sygnałów QUIT, TERM, USR1, USR2, za pomocą funkcji singal
+więcej informacji na temat funkcji signal: https://www.tutorialspoint.com/c_standard_library/c_function_signal.htm
+
+Następnie skompilowano program, uruchomiono i przetestowano jego działanie na skutek odebrania sygnałów SIGQUIT oraz SIGTERM.
+
+Po otwarciu nowego okna terminala i sprawdzeniu PID uruchomionego programu za pomocą polecenia ps -u patryk, wysłano sygnal SIGQUIT za pomocą polecenia: kill -SIGQUIT 9199, program wyprintował informację o otrzymaniu sygnału SIGQUIT i zakończył się zgodnie z zaprogramowanym działaniem.
+
+Po otwarciu nowego okna terminala i sprawdzeniu PID uruchomionego programu za pomocą polecenia ps -u patryk, wysłano sygnal SIGTERM za pomocą polecenia: kill -SIGTERM 9294, program wyprintował informację o otrzymaniu sygnału SIGTERM i kontynuował pracę zgodnie z zaprogramowanym działaniem.
+
+
+Następnie przetestowano działanie SIGUSR1 oraz SIGUSR2, są to specjalne rodzaje sygnałów, które są do użytku programistów, jądro systemu nigdy nie powinno wysyłać tych sygnałów. Defaultowym handlowaniem tych sygnałów przez program jest zakończenie pracy procesu.
+
+Aby wysłać sygnał SIGUSR1 do programu wewnątrz pętli while został dodany blok kodu:
+if ( i > 5000)
+{
+    kill(pid, SIGUSR1);
+}
+gdzie zmienna pid przechowuję numer identyfikacyjny działającego procesu.
+
+który powoduję wysłanie sygnału SIGUSR1 do działającego programu po krótkiej chwili jego działania. Po otrzymaniu sygnału program printuje informację o jego otrzymaniu oraz zgodnie z zaprogramowną akcją (SIG_DFL) na skutek jego otrzymania kończy pracę programu.
+
+Następnie w taki sam sposób wysłano sygnał SIGUSR2 do programu, zgodnie z zaprogramowanym działniem proces zignorował otrzymany sygnal i kontynuował działanie
+
+informacje na temat SIGUSR1 oraz SIGUSR2:
+ https://stackoverflow.com/questions/6168636/how-to-trigger-sigusr1-and-sigusr2
+
+ https://www.gnu.org/software/libc/manual/html_node/Miscellaneous-Signals.html
+
+
+
+ //////////////////////////////////
+ Zad.2
+
+ proc to wirtualny system plików tworzony przy starcie systemu, natomiast przy zamknięciu systemu jest niszczony.
+ Zawiera przydatne informację natemat działających procesów w systemie operacyjnym, jest uważany za centrum kontroli i informacji o procesach.
+ Proc file system dostarcza także narzędzi komunikacji pomiędzy jądrem systemu a użytkownikiem.
+
+
+Proc dla każdego procesu tworzy katalog który można znaleźć pod ściężką /proc/PID gdzie PID to numer identyfikacyjny procesu
+
+w folderze tym znajduję się wiele informacji na temat procesu.
+
+Aby sprawdzić przy pomocy proc jakie sygnały są obsługiwane przez proces musimy użyć polecenia:
+cat /proc/PID/status - gdzie PID to numer id procesu
+
+następnie musimy zlokalizować w otrzymanym outputcie następujące informacje:
+
+SigBlk:	0000000000000000
+SigIgn:	0000000000000800
+SigCgt:	0000000000004204
+
+gdzie:
+blocked (SigBlk) = sygnały blokowane, 
+ignored (SigIgn) = sygnały ignorowane, 
+caught (SigCgt) = sygnały wyłapywane.
+
+musimy zamienić format szesnastkowy na binarny, po to aby kazdy bit reprezentował inny sygnał, a więc będzie:
+
+    (Użyjemy do tego narzędzia bc, przykładowe użycie:
+    patryk@dell:~$ echo "obase=2; ibase=16; A" | bc
+    1010
+    gdzie: 
+        obase określa system output, 
+        ibase określa system input, 
+        A - określa wartość w systemie szesnastkowy, która chcemy zamienić na wartość binarną)
+
+SigBlk:	0
+SigIgn:	100000000000
+SigCgt:	100001000000100
+
+Otrzymane dane interpretujemy od prawej strony, tzn. Sygnały ignorowane mają jedynkę na dwunastym miejscu od prawej, to oznacza że sygnał o ID = 12 jest ignorowany, jest to sygnał SIGUSR2, zgadza się wszystko z naszym programem lab6.c.
+
+Następnie sygnały wyłapywane(handlowane przez proces):
+ID = 3 - SIGQUIT, 10 - SIGUSR1, 15 - SIGTERM
+
+Sygnałów blokowanych nie ma wcale.
+
+więcej info: https://unix.stackexchange.com/questions/85364/how-can-i-check-what-signals-a-process-is-listening-to
+
+
+

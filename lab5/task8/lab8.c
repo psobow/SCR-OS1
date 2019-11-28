@@ -23,7 +23,7 @@ int main()
         close(fd[0]); //zamykam zbędne wejście potoku
         //pobieram od użytkownika nazwę obrazka do otwarcia
         printf("Podaj nazwe pliku ze zdjeciem: \n");
-        scanf("%[^\n]s", fileName);
+        scanf("%[^\n]s", fileName); // wczytuje dopóki napotka znak nowej linii
 
         filePointer = fopen(fileName, "r"); //otwieram plik o podanej nazwie
 

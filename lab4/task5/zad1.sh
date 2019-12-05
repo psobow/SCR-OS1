@@ -14,7 +14,7 @@ do
     trap 'echo "SIGINT mnie nie zabije"' SIGINT
     trap 'echo "SIGQUIT mnie nie zabije"' SIGQUIT
     trap 'echo "SIGFPE  mnie nie zabije"' SIGFPE
-    trap 'echo "SIGKILL mnie nie zabije"' SIGKILL # ten handler nic nie daje, SIGKILL zawsze zabije proces
+    trap 'echo "SIGKILL mnie zabije pomimo trap"' SIGKILL # ten handler nic nie daje, SIGKILL zawsze zabije proces
 
     # Wypisywanie obecnej daty i godziny co podany czas
     date 

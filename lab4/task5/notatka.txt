@@ -8,7 +8,9 @@ Zad. 2
     Wysłanie sygnału SIGSTOP zatrzymało proces, nie można wtedy było używać programu.
     Późniejsze wysłanie sygnału SIGCONT wznowiło pracę procesu.
 
-Zad. 3
+Zad. 3 TODO: dokończyć skrypt
+    //
+
     Polecenie ulimit służy do ustawiania limitów zasobów systemu komputerowego dla danego użytkownika, oraz inspekcji tych limitów.
 
     Wywołanie polecenia ulimit:
@@ -45,8 +47,13 @@ Zad. 3
     Po wywołaniu powyższego polecenia okazało się że w systemie uruchomione jest 255 procesów, próba ustawienia znacznie małej ilości procesów np. 700 i poniżej, przy pomocy ulimit -u 700, skutkuje błędem:
     bash: fork: retry: Resource temporarily unavailable
 
+    Zmniejszenie liczby procesów do 800 oraz uruchomienie skryptu zad3.sh powoduję iż po pewnym czasie zostanie uruchomiona maxymalna liczba procesów i nie jest możliwe uruchomienie kolejnych procesów.
+
 Zad. 4
-    uruchomienie jednego skryptu (zad4.sh) który w nieskończonej pętli printuję informacje o dacie i godzinie dało zużycie procesora na poziomie około 20%
+    nice - run a program with modified scheduling priority
+    renice - alter priority of running proces
+
+    uruchomienie jednego skryptu (zad4.sh) który w nieskończonej pętli printuję informacje o dacie i godzinie dało zużycie procesora na poziomie około 20% (sprawdzone przy pomocy polecenia top)
 
     PID     USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
     20713   patryk    20   0   21212   3196   2928 S  19.6  0.0   0:09.35 zad4.sh  

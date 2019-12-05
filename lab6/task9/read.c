@@ -1,10 +1,7 @@
-#include <fcntl.h>
+#include <unistd.h> //close, dup, execlp
+#include <stdio.h> // BUFSIZ
+
 #define FIFO "fifopipe1"
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 
 void main()
 {

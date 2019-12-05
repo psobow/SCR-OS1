@@ -1,10 +1,8 @@
-#include <fcntl.h>
+#include <fcntl.h> // O_RDONLY, O_WRONLY
+#include <unistd.h> // read, write
+#include <stdio.h> // BUFSIZ
+
 #define FIFO "fifopipe1"
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 
 void main()
 {

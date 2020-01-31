@@ -1,0 +1,23 @@
+Zad 1.
+
+Problemem jest to że wiele wątków zapisuje do pamięci globalnej bez żadnego mechanizmu kontroli np. mutexu. w efekcie output programu prawie za każdym razem będzie niepoprawny i różny od poprzedniego.  
+
+Musimy zabezpieczyć zapis do zmiennej globalnej long sum=0;
+mutexem:
+
+Czyli musimy do tego fragmentu kodu:
+for (i=start; i<end ; i++) 
+      sum += (a[i] * b[i]);
+   printf("thread: %ld done. Global sum now is=%li\n",tid,sum);
+
+Dodać mutexlock i mutexunlock
+
+for (i=start; i<end ; i++) {
+      pthread_mutex_lock(&mutexsum);
+      sum += (a[i] * b[i]);
+      pthread_mutex_unlock(&mutexsum);
+      }
+   printf("thread: %ld done. Global sum now is=%li\n",tid,sum);
+
+
+Zad.2 Powodem problemu było to że w kodzie źródłowym pliku bug1.c używaliśmy funkcji pthread_cond_signal(&count_threshold_cv); która wybudza tylko jeden wątek oczekujący na sygnał COND tymczasem wątków oczekujących było więcej. aby obsłużyć sytuację z wieloma wątkami trzeba użyć funkcji pthread_cond_broadcast(&count_threshold_cv); która wybudza wszystkie wątki oczekujące na sygnał COND.

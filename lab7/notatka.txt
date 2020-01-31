@@ -1,0 +1,17 @@
+zad.2 
+
+Kolejność wyświetlanych danych przy kolejnych uruchomieniach programu będzie inna. Wynika to z tego iż czasem pracy procesora steruje planista który w niedeterministyczny sposób wybiera który wątek ma pracować w efekcie kolejne uruchomienia programu powodują że wątki pracują w innej kolejności niż poprzednio.
+
+zad.3
+
+Przez to że przekazywaliśmy wskaźnik na zmienną której wartość była modyfikowana w pętli w funkcji main, wartość ta byla modyfikowana w funkcji main i wszystkie wątki odwoływały się do tej samej wartości, tego samego obszaru w pamięci.
+
+Trzeba to naprawić tak że przekazujemy do każdego wątku wskaźnik do obszaru pamięci, który nie jest modyfikowany wewnątrz funkcji main. 
+
+użyłem do tego nowej tablicy z ID zadań
+long taskids[NUM_THREADS];
+
+i następnie przekazywałem to id w taki sposób
+pthread_create(&threads[t], NULL, PrintHello, (void *) taskids[t]); 
+
+zad. 4 brakowało pthread_join(threads[t], NULL);  
